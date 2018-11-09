@@ -330,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/统计学习方法/statistical_learning_method.html">
+    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-1.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zofvbeaf">
@@ -349,7 +349,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/统计学习方法/statistical_learning_method.html" itemprop="url">《统计学习方法》一. 概论</a></h2>
+                <a class="post-title-link" href="/统计学习方法/statistical-learning-method-1.html" itemprop="url">《统计学习方法》一. 概论</a></h2>
         
 
         <div class="post-meta">
@@ -422,8 +422,7 @@
 
       
         
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
 <li>只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向</li>
 <li>学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon</li>
 </ul>
@@ -438,107 +437,13 @@
 <li>假设空间: $ \mathcal{F} = \{ f\;|  \mathit{Y} = f(X) \} $</li>
 <li>最终变成求 $\min\limits_{f\in\mathcal{F}}R_{emp}(f)$ 或 $min_{f\in\mathcal{F}}R_{srm}(f)$ 的问题</li>
 </ul>
-<h2 id="统计学习三要素"><a href="#统计学习三要素" class="headerlink" title="统计学习三要素"></a>统计学习三要素</h2><ul>
-<li>方法 = 模型 + 策略 + 算法</li>
-</ul>
-<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><ul>
-<li>损失函数: 0-1, quadratic, absolute, logarithmic</li>
-<li>风险函数(期望损失): $ R_{exp}(f) = E_{p}[L(Y, f(X))] = \int_{x\times y}L(y, f(x))P(x,y)dxdy $</li>
-<li>经验风险(经验损失)(empirical loss): $\displaystyle R_{emp}(f) = \frac{1}{N}\sum_{i=1}^{N}L(y_i, f(x_i)) $</li>
-<li>根据大数定理, 可用$R_{emp}(f)$估计$R_{exp}(f)$, 但由于现实中样本有限, 甚至很少，所以需要矫正$R_{emp}(f)$</li>
-<li>经验风险最小化(ERM)和结构风险最小化(SRM)<ul>
-<li>ERM: 用最优化方法求解$\min\limits_{f\in\mathcal{F}}R_{emp}(f)$<ul>
-<li>样本容量很小时容易过拟合(over-fitting), 但样本容量大时，学习效果很好</li>
-<li>当模型是条件概率分布，损失函数是对数损失函数时，经验风险最小化就等价于极大似然估计(MLE)(<a href="http://datahonor.com/2017/03/03/最大似然估计与经验风险最小化/" target="_blank" rel="noopener">证明</a>). </li>
-</ul>
-</li>
-<li>SRM: 等价于正则化(regularizer), 即求 $\min\limits_{f\in\mathcal{F}}R_{srm}(f)$<ul>
-<li>结构风险: $\displaystyle R_{srm}(f) = R_{emp}(f) + \lambda J(f)$ <ul>
-<li>其中 $\lambda J(f)$ 位正则化项或罚项(penalty term)</li>
-<li>$J(f)$是模型空间复杂度, 为定义在$\mathcal{F}$上的泛函. $f$越复杂, $J(f)$越大.</li>
-<li>$\lambda \ge 0$是系数, 用以权衡经验风险和模型复杂度</li>
-<li>$R_{srm}(f)$小要求$R_{emp}(f)$和$J(f)$同时小, $R_{srm}(f)$小的模型往往对训练数据以及未知的测试数据都有较好的预测</li>
-<li>当模型是条件概率分布, 损失函数是对数损失函数, 模型复杂度由模型的先验概率分布表示时，结构风险最小化就等价于最大后验概率估计(MAP)(证明)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="模型评估与选择"><a href="#模型评估与选择" class="headerlink" title="模型评估与选择"></a>模型评估与选择</h2><ul>
-<li>训练误差(<strong>tranning error</strong>): 模型关于训练数据集的平均损失</li>
-<li>测试误差(<strong>test error</strong>): 模型关于测试数据集的平均损失, 反映了模型的预测能力(泛化能力 <strong>generalization ability</strong>)</li>
-<li>过拟合: 所选模型参数过多, 对训练数据预测的很好, 对测试数据预测的很差</li>
-<li>模型选择时要选择复杂度适当的模型, 防止过拟合.</li>
-</ul>
-<h2 id="正则化与交叉验证"><a href="#正则化与交叉验证" class="headerlink" title="正则化与交叉验证"></a>正则化与交叉验证</h2><ul>
-<li>此为常用的两种模型选择方法</li>
-</ul>
-<h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><ul>
-<li>$\min\limits_{f\in\mathcal{F}}R_{srm}(f)$</li>
-<li>正则化项: 一般是模型复杂度的单调递增函数，模型越复杂，正则化值越大<blockquote>
-<p>如参数向量$w$的$L_1$范数$||w_1||$或$L_2$范数$\frac{1}{2}||w_1||^2$</p>
-</blockquote>
-</li>
-<li>模型越复杂, 先验概率越大</li>
-</ul>
-<h3 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h3><ul>
-<li>样本充足时, 可随机切成训练集(用于训练模型), 验证集(用于模型选择, 选择预测误差最小的模型)和测试集(模型评估)</li>
-<li>交叉验证: 重复使用数据, 反复切, 反复训练, 测试及模型选择</li>
-<li>简单交叉验证: 随机切成训练集和测试集, 选测试误差最小的模型</li>
-<li>$S$折交叉验证(S-fold cross validation): 切成$S$份, 每次选$S-1$份训练, $1$份测试, 重复$S$次</li>
-<li>留一交叉验证: $S=N$, 数据集为$N$, 数据集较少时用</li>
-</ul>
-<h2 id="泛化能力"><a href="#泛化能力" class="headerlink" title="泛化能力"></a>泛化能力</h2><ul>
-<li>即模型$\hat{f}$的预测能力, 用$R_{exp}(\hat{f})$来表示</li>
-<li>泛化误差上界: $R(f) \le \hat{R}(f) + \epsilon(d, N, \delta)$<blockquote>
-<p>$R(f)$为泛化误差<br>$\le$右边为泛化误差上界<br>$\hat{R}(f)$为训练误差<br>$\epsilon(d, N, \delta) = \sqrt{\frac{1}{2N}(\log d + \log \frac{1}{\delta})}$</p>
-</blockquote>
-</li>
-<li>训练误差小的模型, 泛化误差也会小</li>
-</ul>
-<h2 id="生成模型与判别模型"><a href="#生成模型与判别模型" class="headerlink" title="生成模型与判别模型"></a>生成模型与判别模型</h2><ul>
-<li>监督学习的方法可以分为: 生成方法(<strong>generative approach</strong>)和判别方法(<strong>discriminative approach</strong>)</li>
-<li>生成方法: 先学习$P(X,Y)$再求出$P(Y|X) = \frac{P(X,Y)}{P(X)}$<blockquote>
-<p>如:朴素贝叶斯法和隐马尔可夫模型</p>
-</blockquote>
-</li>
-<li>判别方法: 直接学习$f(X)$或$P(X,Y)$<blockquote>
-<p>如:$k$近邻法, 感知机, 决策树,  逻辑斯蒂回归模型, 最大熵模型, 支持向量机, 提升方法和条件随机场等<br>存在隐变量时, 判别方法不能用</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><ul>
-<li>$P(Y|X)$作为分类器 </li>
-<li>分类准确率(<strong>accuracy</strong>): 对于给定的测试数据集, 分类正确的样本数与总样本数之比</li>
-<li>精确率(<strong>precision</strong>):$P = \frac{TP}{TP+FP}$ <blockquote>
-<p>True, False, Positive, Negative</p>
-</blockquote>
-</li>
-<li>召回率(<strong>recall</strong>): $R = \frac{TP}{TP+FN}$</li>
-<li>$P$和$R$的调和均值$F_1$: $\frac{1}{F_1} = \frac{1}{P} + \frac{1}{R}$, 即$F_1 = \frac{2TP}{2TP+FP+FN}$</li>
-<li>许多统计学习方法可以用于分类<blockquote>
-<p>如: $k$近邻法, 感知机, 朴素贝叶斯法, 决策树, 决策列表, 逻辑斯蒂回归模型, 支持向量机, 提升方法, 贝叶斯网络, 神经网络, Winnow等</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="标注-tagging-问题"><a href="#标注-tagging-问题" class="headerlink" title="标注(tagging)问题"></a>标注(tagging)问题</h2><ul>
-<li>可以认为书分类问题的推广，也是更复杂的结构预测(<strong>structure prediction</strong>)问题的简单形式</li>
-<li>输入一个观测序列$x_{N+1} = (x_{N+1}^{(1)}, x_{N+1}^{(2)}, x_{N+1}^{(3)}, … ,x_{N+1}^{(n)})^T$, 找到使条件概率$$P((y_{N+1}^{(1)}, y_{N+1}^{(2)}, y_{N+1}^{(3)}, … ,y_{N+1}^{(n)})|(x_{N+1}^{(1)}, x_{N+1}^{(2)}, x_{N+1}^{(3)}, … ,x_{N+1}^{(n)})$$最大的标记序列$y_{N+1} = (y_{N+1}^{(1)}, y_{N+1}^{(2)}, y_{N+1}^{(3)}, … ,y_{N+1}^{(n)})^T$<blockquote>
-<p>常用的标注方法:隐马尔科夫模型`和条件随机场</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h2><ul>
-<li>等价于函数拟合: 选择一条函数曲线使其很好地拟合已知数据且很好地预测未知数据</li>
-<li>分类<blockquote>
-<p>按输入变量的个数: 一元回归和多元回归<br>输入与输出变量的关系模型: 线性回归和非线性回归<br>损失函数是平方损失函数时: 可用最小二乘法(<strong>least squares</strong>)求解</p>
-</blockquote>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/统计学习方法/statistical-learning-method-1.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -677,8 +582,7 @@
 
       
         
-          
-            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
+          <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
 <li>以往数据库调优是 DBA 在问题发生后进行调整，self-driving （自治）数据库不仅优化当前工作负载，还可以预测以后的负载情况，从而事先做好准备，并且可以为现代高性能数据库提供更多复杂的新的优化方案。Peloton 通过深度学习实现了self-driving。</li>
 <li>现存的自动调优技术例如：Self-Tuning 物理数据库技术，自动选择索引、自动对表分区存储、自动创建和更新物化视图。自动选择底层存储方式（H2O， 2014），自动设置数据库配置参数，拷贝并及时更新所需索引的DataBase Cracking 技术，云数据库动态资源配置等等。但以上都只用于解决单一的问题，没有从全局考虑，而且 DBA 不一定能了解那么多方面去修复或优化一个系统，而且无法预测未来的负载从而提前做出决策。</li>
 </ul>
@@ -689,35 +593,182 @@
 <li>需要确定何时生成及采用相应的优化动作。即需要动态学习和改变，以适应负载的改变。</li>
 <li>两个额外的限制：代码不能因为上层需求改变而需要重构；它不能依赖于仅支持某些编程环境的程序分析工具。</li>
 </ul>
-<h1 id="Self-Driving-架构"><a href="#Self-Driving-架构" class="headerlink" title="Self-Driving 架构"></a>Self-Driving 架构</h1><ul>
-<li>现存的数据库在修改表1 中的Actions时常常需要重启，并且速度也比较慢。自研一个新的DBMS架构能很好的嵌入self-driving组件，并且提供更细粒度的控制。使用多版本并发控制（MVCC）来使得 OLTP 事务不会阻塞 OLAP 查询。使用内存管理、lock-free数据结构和flexible layout使得HTAP工作负载可以快速执行(即 Peloton 的实现)。<br><img src="/images/Self-Driving-Architecture.jpg" alt="Self-Driving-Architecture"></li>
-<li>Peloton架构如Figure 1，系统在不需要任何除环境（例如内存上限，目录路径等）外的其它信息就可以实现自动学习如何降低延迟（数据库最重要的性能指标），目前主要考虑延迟，其它的指标（分布式环境服务开销和能耗）可通过增加限制来优化。</li>
-<li>Peloton中有一个Workload Monitor来监控事件流的资源使用情况和DBMS /OS遥测数据、优化动作的问题出现和结束时机。之后通过这些数据预测负载情况，找出系统瓶颈和其它问题（如索引丢失，节点过载）然后选择最佳执行动作，并且执行的同时进行检测和学习。</li>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/paper-reading/Self-Driving-Database-Management-Systems.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-2.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zofvbeaf">
+      <meta itemprop="description" content="浮世梦中梦，布衣裁不裁，弹狭狂歌莫浪猜。埋，贤愚何用哉。青山在，月明归去来。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZOFVBEAF'S BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/统计学习方法/statistical-learning-method-2.html" itemprop="url">《统计学习方法》二. 感知机</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-09T10:51:47+08:00">
+                2016-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计学习方法/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学习方法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="感知机-preceptron"><a href="#感知机-preceptron" class="headerlink" title="感知机(preceptron)"></a>感知机(preceptron)</h1><blockquote>
+<p>属于判别模型, 输入为实例的特征向量, 输出为实例的类别<br>是一种线性分类模型</p>
+</blockquote>
+<h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><ul>
+<li>$f(x) = sign(\omega\cdot x + b), 其中sign(x) = \begin{cases} +1, &amp;{x \ge 0} \\ -1, &amp;{x \lt 0} \end{cases} $</li>
+<li>线性分类器: $f(x) = \lbrace f|f(x) = \omega\cdot x + b \rbrace$</li>
 </ul>
-<h2 id="负载分类"><a href="#负载分类" class="headerlink" title="负载分类"></a>负载分类</h2><ul>
-<li>第一个功能组件是通过无监督学习的方式将具有相似特性的应用查询进行聚合，即对负载进行聚类，可以减少模型数量，更容易预测应用行为。Peloton最初的实现是DBSCAN算法（原本用于聚合OLTP负载）。</li>
-<li>一个很大的问题就是用什么查询特性来进行聚类，有两种：一是查询runtime metrics，虽然这对可以在不需要理解其意义的情况下进行聚类，但是其对数据库内容和底层物理设计的变化更敏感，对高并发的负载也会出现类似的问题；二是查询逻辑语义，基于逻辑执行计划（如表和谓词）来分类，其独立于数据库内容和底层物理设计，但是需要考虑其是否能生成好的模型，并且为了runtime metrics的精度所付出的训练代价是值得的。不过，有可能模型变化不大，收敛快，且由于硬件加速使得开销小。</li>
-<li>还有一个问题就是如何确定类簇已经不再正确了。Peloton采用交叉验证（留一小部分数据集作为验证集）来确定何时类簇的错误率超过阈值，并且可以探索执行动作是如何影响查询的，从而决定何时重新训练模型。</li>
+<h2 id="感知机学习策略"><a href="#感知机学习策略" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h2><ul>
+<li>数据集的线性可分性: 存在某个超平面$ S: \omega\cdot x + b = 0 $能够将数据集的正实例点和负实例点完全正确的划分到超平面的两侧<blockquote>
+<p>即对所有实例$i$有: $y_i = \begin{cases} +1, &amp;{\omega\cdot x + b \ge 0} \\ -1, &amp;{\omega\cdot x + b\lt 0} \end{cases} $</p>
+</blockquote>
+</li>
+<li>感知机就是要找出这样一个超平面，即确定$\omega$和$b$, 定义(经验)损失函数并将损失函数极小化<blockquote>
+<p>损失函数: $\displaystyle L(\omega, b) = -\sum_{x_i \in M} y_i(\omega\cdot x_i + b)$<br>其中$M$为所有误分类点的集合</p>
+</blockquote>
+</li>
 </ul>
-<h2 id="负载预测"><a href="#负载预测" class="headerlink" title="负载预测"></a>负载预测</h2><ul>
-<li>为每一种负载的查询的出现率做预测，除了异常的热点之外，这种预测使系统能够识别负载周期性和数据增长趋势，从而为负载波动做准备。在DBMS执行查询之后，它用其簇标识符标记每个查询，然后填充一个直方图，该直方图跟踪在一个时间段内到达每个群集的查询的数量。Peloton使用这些数据来训练预测模型，这些模型估计了应用程序在将来执行的每个簇的查询数量。DBMS还在事件流中为其他DBMS/OS指标构建了类似的模型。</li>
-<li>ARM被用来做时序数据的线性关系分析，但是数据库可能被多个因素影响，并不符合线性假说。</li>
-<li>RNN对预测时序数据的非线性模型很有效。LSTM是RNN的一个变种，可以学习时序数据的周期性规律。</li>
-<li>RNN的准确性依赖于其训练数据集的大小，Peloton为每个Group维护多个RNN（不同的时间范围和间隔）来预测负载。尽管这种粗粒度的RNN不太准确，但是减少了DBMS必须在运行时维护的训练数据的大小和预测所需的开销。</li>
-</ul>
-<h2 id="Action-Planning-amp-Execution"><a href="#Action-Planning-amp-Execution" class="headerlink" title="Action Planning &amp; Execution"></a>Action Planning &amp; Execution</h2><ul>
-<li>将自动化部件与DBMS进行紧耦合可以使得各部分之间提供反馈。还可以将增强学习应用于并发控制和查询优化</li>
-<li><strong>Action Generation：Peloton</strong>会搜索可能提升性能的Action，并且将action及其调用后对系统的影响记录在catalog中。这种搜索是由预测模型引导的，这样系统就会寻找能够提供最大收益的操作。它还可以删除冗余操作，以减少搜索的复杂性。可以根据资源需求及使用情况决定分配多少个CPU核来执行action。Action资源分配的knob为增量更改而非绝对值。某些action还有相应的reverse action，如 add/drop index。</li>
-<li><strong>Action Generation:</strong> Peloton会搜索可能提升性能的Action，并且将action及其调用后对系统的影响记录在catalog中。这种搜索是由预测模型引导的，这样系统就会寻找能够提供最大收益的操作。它还可以删除冗余操作，以减少搜索的复杂性。可以根据资源需求及使用情况决定分配多少个CPU核来执行action。Action资源分配的knob为增量更改而非绝对值。某些action还有相应的reverse action，如 add/drop index。</li>
-<li>在RHCM之下，计划流程（planning process）被组织为树状，每一层包含某个时刻数据库可调用的action，系统根据这些action的成本效益（cost-benefit）来决定调用哪一个action，也有可能一个action都不调用。一种搜索方式是随机选择树上层次更深的action而非评估所有的action（参考alpha go的论文）。对当前数据库状态和预期负载效益更好的action更可能被考虑（加权），同时最近被reverse的action会被避免调用。</li>
-<li>一个action的开销(cost)是对部署（deploy）这个action的时间和数据库因此性能下降情况的估计。对于没有调用过的action的分析，通过回馈机制分析某一类型的action来改善。一个action的效益(benefit)是在执行（intsall）这个action后在查询延迟上带来的改变，即查询样例的开销加权总和，权重为预测出来的相应查询的到达率。而且时域（time horizon）也会作为权重考虑，这使得直接模型（immediate model）会对最终的成本效益分析有更大的影响。</li>
-<li>此外，action对Peloton的内存使用率的影响也会在cost-benefit分析的时候考虑，任何导致DBMS内存超限的action都会被忽略。</li>
-<li>RHCM的horizon的值比较微妙，太短的话，在即将到来的负载峰值时DBMS来不及进行准备；太长的话，突然出现的问题无法及时得到优化解决，因为模型太慢了。除此之外，由于计算每个time epoch的cost-benefit是昂贵的，所以可以创建另一个深度神经网络从而用一个值函数来近似它们。</li>
-<li><strong>Deployment：</strong>Peloton支持非阻塞地deploying actions。例如，对表进行迁移或重组并不影响其它查询的访问。一些操作，比如添加索引，需要特别考虑，以防在action执行过程中因为因为数据被修改而产生影响。</li>
-<li>DBMS还处理来自集成机器学习组件的资源调度和争用问题。使用单独的联合处理器或GPU来处理繁重的计算任务将避免减慢DBMS的速度。否则，DBMS将不得不使用单独的机器，专门用于所有的预测和计划组件。这将使系统的设计复杂化，并由于协调而增加额外的开销。</li>
-</ul>
-<h2 id="Additional-Considerations"><a href="#Additional-Considerations" class="headerlink" title="Additional Considerations"></a>Additional Considerations</h2><ul>
-<li>DBA对于self-driving的不信任，可以将决策写成人类可读的形式，比如为什么添加索引，它的负载跟之前哪一个很相似，为何添加索引可以带来优化。另外，还需要提示DBA是否需要进行OLTP或者OLAP的优化，以及数据库的重要性优先级。Peloton也会像其它action一样记录DBA的手动操作，并且记录其效益，同时也允许DBA决定此记录何时过时，以防止消除误操作带来长期的影响。</li>
+<h2 id="感知机学习算法"><a href="#感知机学习算法" class="headerlink" title="感知机学习算法"></a>感知机学习算法</h2><ul>
+<li>即求解$\displaystyle \min_{\omega, b} L(\omega, b)$的最优化问题<blockquote>
+<p>任意选取一个超平面$\omega_0, b_0$, 然后用梯度下降法不断地极小化目标函数<br>选取$y_i(\omega\cdot x_i + b) \le 0$<br>$$ \omega \gets \omega + \eta y_i x_i$$ $$ b \gets b + \eta y_i $$<br>$\eta(0\le\eta\lt 0)$是步长, 又称为学习率</p>
+</blockquote>
+</li>
+<li>算法的收敛性证明<blockquote>
+<p>即证明: 设数据集是线性可分的, 经过有限次迭代可以得到一个将训练数据集完全正确划分的分离超平面及感知机模型<br>最终得到误分类次数$k \le (\frac{R}{\gamma})^2$, 其中$\displaystyle R = \max_{1\le i \le N}\parallel \hat{x}_i \parallel$<br>当训练集线性不可分时, 算法不收敛, 迭代结果会发生震荡</p>
+</blockquote>
+</li>
+<li>对偶形式<blockquote>
+<p>感知机模型$\displaystyle f(x) = sign(\sum_{j=1}^N \alpha_j y_j x_j\cdot x + b)$<br>其中$\alpha_i = n_i\eta$, 且迭代过程为: $\begin{cases} \alpha_i &amp; \gets \alpha_i + \eta \\ b &amp; \gets b + \eta y_i \end{cases}$</p>
+</blockquote>
+</li>
 </ul>
 
           
@@ -802,7 +853,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

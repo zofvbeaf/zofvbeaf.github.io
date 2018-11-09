@@ -125,7 +125,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://zofvbeaf.github.io/images/Self-Driving-Actions.jpg">
 <meta property="og:image" content="http://zofvbeaf.github.io/images/Self-Driving-Architecture.jpg">
-<meta property="og:updated_time" content="2018-11-07T12:50:17.359Z">
+<meta property="og:updated_time" content="2018-11-09T03:01:20.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Self-Driving Database Management Systems (CIDR’17)">
 <meta name="twitter:description" content="介绍 以往数据库调优是 DBA 在问题发生后进行调整，self-driving （自治）数据库不仅优化当前工作负载，还可以预测以后的负载情况，从而事先做好准备，并且可以为现代高性能数据库提供更多复杂的新的优化方案。Peloton 通过深度学习实现了self-driving。 现存的自动调优技术例如：Self-Tuning 物理数据库技术，自动选择索引、自动对表分区存储、自动创建和更新物化视图。自动">
@@ -434,6 +434,7 @@
 <li>需要确定何时生成及采用相应的优化动作。即需要动态学习和改变，以适应负载的改变。</li>
 <li>两个额外的限制：代码不能因为上层需求改变而需要重构；它不能依赖于仅支持某些编程环境的程序分析工具。</li>
 </ul>
+<a id="more"></a>
 <h1 id="Self-Driving-架构"><a href="#Self-Driving-架构" class="headerlink" title="Self-Driving 架构"></a>Self-Driving 架构</h1><ul>
 <li>现存的数据库在修改表1 中的Actions时常常需要重启，并且速度也比较慢。自研一个新的DBMS架构能很好的嵌入self-driving组件，并且提供更细粒度的控制。使用多版本并发控制（MVCC）来使得 OLTP 事务不会阻塞 OLAP 查询。使用内存管理、lock-free数据结构和flexible layout使得HTAP工作负载可以快速执行(即 Peloton 的实现)。<br><img src="/images/Self-Driving-Architecture.jpg" alt="Self-Driving-Architecture"></li>
 <li>Peloton架构如Figure 1，系统在不需要任何除环境（例如内存上限，目录路径等）外的其它信息就可以实现自动学习如何降低延迟（数据库最重要的性能指标），目前主要考虑延迟，其它的指标（分布式环境服务开销和能耗）可通过增加限制来优化。</li>
@@ -496,13 +497,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/统计学习方法/statistical-learning-method-2.html" rel="next" title="《统计学习方法》二. 感知机">
+                <i class="fa fa-chevron-left"></i> 《统计学习方法》二. 感知机
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/统计学习方法/statistical_learning_method.html" rel="prev" title="《统计学习方法》一. 概论">
+              <a href="/统计学习方法/statistical-learning-method-1.html" rel="prev" title="《统计学习方法》一. 概论">
                 《统计学习方法》一. 概论 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -583,7 +588,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

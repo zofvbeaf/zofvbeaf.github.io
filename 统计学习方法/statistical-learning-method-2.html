@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
+  <meta name="keywords" content="统计学习方法,machine learning,book,">
 
 
 
@@ -115,16 +115,18 @@
 
 
 
-<meta name="description" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZOFVBEAF&#39;S BLOG">
-<meta property="og:url" content="http://zofvbeaf.github.io/tags/统计学习方法/index.html">
+<meta name="description" content="感知机(preceptron) 属于判别模型, 输入为实例的特征向量, 输出为实例的类别是一种线性分类模型  感知机模型 $f(x) = sign(\omega\cdot x + b), 其中sign(x) = \begin{cases} +1, &amp;amp;{x \ge 0} \\ -1, &amp;amp;{x \lt 0} \end{cases} $ 线性分类器: $f(x) = \lbrace f|">
+<meta name="keywords" content="统计学习方法,machine learning,book">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《统计学习方法》二. 感知机">
+<meta property="og:url" content="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-2.html">
 <meta property="og:site_name" content="ZOFVBEAF&#39;S BLOG">
-<meta property="og:description" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
+<meta property="og:description" content="感知机(preceptron) 属于判别模型, 输入为实例的特征向量, 输出为实例的类别是一种线性分类模型  感知机模型 $f(x) = sign(\omega\cdot x + b), 其中sign(x) = \begin{cases} +1, &amp;amp;{x \ge 0} \\ -1, &amp;amp;{x \lt 0} \end{cases} $ 线性分类器: $f(x) = \lbrace f|">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-09T08:31:59.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZOFVBEAF&#39;S BLOG">
-<meta name="twitter:description" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
+<meta name="twitter:title" content="《统计学习方法》二. 感知机">
+<meta name="twitter:description" content="感知机(preceptron) 属于判别模型, 输入为实例的特征向量, 输出为实例的类别是一种线性分类模型  感知机模型 $f(x) = sign(\omega\cdot x + b), 其中sign(x) = \begin{cases} +1, &amp;amp;{x \ge 0} \\ -1, &amp;amp;{x \lt 0} \end{cases} $ 线性分类器: $f(x) = \lbrace f|">
 
 
 
@@ -154,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="http://zofvbeaf.github.io/tags/统计学习方法/">
+  <link rel="canonical" href="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-2.html">
 
 
 
 
 
-  <title>Tag: 统计学习方法 | ZOFVBEAF'S BLOG</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>《统计学习方法》二. 感知机 | ZOFVBEAF'S BLOG</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -179,7 +181,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -315,78 +317,203 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>统计学习方法<small>Tag</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-2.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zofvbeaf">
+      <meta itemprop="description" content="浮世梦中梦，布衣裁不裁，弹狭狂歌莫浪猜。埋，贤愚何用哉。青山在，月明归去来。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZOFVBEAF'S BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/统计学习方法/statistical-learning-method-1.html" itemprop="url">
-              
-                <span itemprop="name">《统计学习方法》一. 概论</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">《统计学习方法》二. 感知机</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-07T21:04:54+08:00" content="2018-11-07">
-          11-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-09T10:51:47+08:00">
+                2016-11-09
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计学习方法/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学习方法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/统计学习方法/statistical-learning-method-2.html" itemprop="url">
-              
-                <span itemprop="name">《统计学习方法》二. 感知机</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-11-09T10:51:47+08:00" content="2016-11-09">
-          11-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h1 id="感知机-preceptron"><a href="#感知机-preceptron" class="headerlink" title="感知机(preceptron)"></a>感知机(preceptron)</h1><blockquote>
+<p>属于判别模型, 输入为实例的特征向量, 输出为实例的类别<br>是一种线性分类模型</p>
+</blockquote>
+<h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><ul>
+<li>$f(x) = sign(\omega\cdot x + b), 其中sign(x) = \begin{cases} +1, &amp;{x \ge 0} \\ -1, &amp;{x \lt 0} \end{cases} $</li>
+<li>线性分类器: $f(x) = \lbrace f|f(x) = \omega\cdot x + b \rbrace$</li>
+</ul>
+<h2 id="感知机学习策略"><a href="#感知机学习策略" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h2><ul>
+<li>数据集的线性可分性: 存在某个超平面$ S: \omega\cdot x + b = 0 $能够将数据集的正实例点和负实例点完全正确的划分到超平面的两侧<blockquote>
+<p>即对所有实例$i$有: $y_i = \begin{cases} +1, &amp;{\omega\cdot x + b \ge 0} \\ -1, &amp;{\omega\cdot x + b\lt 0} \end{cases} $</p>
+</blockquote>
+</li>
+<li>感知机就是要找出这样一个超平面，即确定$\omega$和$b$, 定义(经验)损失函数并将损失函数极小化<blockquote>
+<p>损失函数: $\displaystyle L(\omega, b) = -\sum_{x_i \in M} y_i(\omega\cdot x_i + b)$<br>其中$M$为所有误分类点的集合</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="感知机学习算法"><a href="#感知机学习算法" class="headerlink" title="感知机学习算法"></a>感知机学习算法</h2><ul>
+<li>即求解$\displaystyle \min_{\omega, b} L(\omega, b)$的最优化问题<blockquote>
+<p>任意选取一个超平面$\omega_0, b_0$, 然后用梯度下降法不断地极小化目标函数<br>选取$y_i(\omega\cdot x_i + b) \le 0$<br>$$ \omega \gets \omega + \eta y_i x_i$$ $$ b \gets b + \eta y_i $$<br>$\eta(0\le\eta\lt 0)$是步长, 又称为学习率</p>
+</blockquote>
+</li>
+<li>算法的收敛性证明<blockquote>
+<p>即证明: 设数据集是线性可分的, 经过有限次迭代可以得到一个将训练数据集完全正确划分的分离超平面及感知机模型<br>最终得到误分类次数$k \le (\frac{R}{\gamma})^2$, 其中$\displaystyle R = \max_{1\le i \le N}\parallel \hat{x}_i \parallel$<br>当训练集线性不可分时, 算法不收敛, 迭代结果会发生震荡</p>
+</blockquote>
+</li>
+<li>对偶形式<blockquote>
+<p>感知机模型$\displaystyle f(x) = sign(\sum_{j=1}^N \alpha_j y_j x_j\cdot x + b)$<br>其中$\alpha_i = n_i\eta$, 且迭代过程为: $\begin{cases} \alpha_i &amp; \gets \alpha_i + \eta \\ b &amp; \gets b + \eta y_i \end{cases}$</p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/统计学习方法/" rel="tag"><i class="fa fa-tag"></i> 统计学习方法</a>
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+          
+            <a href="/tags/book/" rel="tag"><i class="fa fa-tag"></i> book</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/paper-reading/Self-Driving-Database-Management-Systems.html" rel="prev" title="Self-Driving Database Management Systems (CIDR’17)">
+                Self-Driving Database Management Systems (CIDR’17) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -394,6 +521,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -414,8 +545,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -493,6 +633,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感知机-preceptron"><span class="nav-number">1.</span> <span class="nav-text">感知机(preceptron)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机模型"><span class="nav-number">1.1.</span> <span class="nav-text">感知机模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机学习策略"><span class="nav-number">1.2.</span> <span class="nav-text">感知机学习策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机学习算法"><span class="nav-number">1.3.</span> <span class="nav-text">感知机学习算法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -641,6 +797,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
