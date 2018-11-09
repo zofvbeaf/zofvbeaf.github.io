@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="CS229,machine learning,">
+  <meta name="keywords" content="统计学习方法,machine learning,book,">
 
 
 
@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="前言 主要结合李航的《统计学习方法》进行学习 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究  监督学习 由训练资料中学到或建立一个模式（函数 / learning model），并依此模式推测新的实例。 基本概念：input sp">
-<meta name="keywords" content="CS229,machine learning">
+<meta name="description" content="前言 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究 本章主要将监督学习  监督学习 从给定有限的训练数据出发, 假定数据是独立同分布的, 而且假设模型属于某个假设空间, 应用某一评价准则, 从假设空间中选取一个最优的模型, 使它对">
+<meta name="keywords" content="统计学习方法,machine learning,book">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS229 lesson 1 Supervised Learning Setup. Linear Regression.">
-<meta property="og:url" content="http://zofvbeaf.github.io/machine-learning/cs229-1.html">
+<meta property="og:title" content="《统计学习方法》一. 概论">
+<meta property="og:url" content="http://zofvbeaf.github.io/统计学习方法/statistical_learning_method.html">
 <meta property="og:site_name" content="ZOFVBEAF&#39;S BLOG">
-<meta property="og:description" content="前言 主要结合李航的《统计学习方法》进行学习 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究  监督学习 由训练资料中学到或建立一个模式（函数 / learning model），并依此模式推测新的实例。 基本概念：input sp">
+<meta property="og:description" content="前言 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究 本章主要将监督学习  监督学习 从给定有限的训练数据出发, 假定数据是独立同分布的, 而且假设模型属于某个假设空间, 应用某一评价准则, 从假设空间中选取一个最优的模型, 使它对">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-08T12:02:25.653Z">
+<meta property="og:updated_time" content="2018-11-09T02:47:25.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CS229 lesson 1 Supervised Learning Setup. Linear Regression.">
-<meta name="twitter:description" content="前言 主要结合李航的《统计学习方法》进行学习 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究  监督学习 由训练资料中学到或建立一个模式（函数 / learning model），并依此模式推测新的实例。 基本概念：input sp">
+<meta name="twitter:title" content="《统计学习方法》一. 概论">
+<meta name="twitter:description" content="前言 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究 本章主要将监督学习  监督学习 从给定有限的训练数据出发, 假定数据是独立同分布的, 而且假设模型属于某个假设空间, 应用某一评价准则, 从假设空间中选取一个最优的模型, 使它对">
 
 
 
@@ -156,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="http://zofvbeaf.github.io/machine-learning/cs229-1.html">
+  <link rel="canonical" href="http://zofvbeaf.github.io/统计学习方法/statistical_learning_method.html">
 
 
 
 
 
-  <title>CS229 lesson 1 Supervised Learning Setup. Linear Regression. | ZOFVBEAF'S BLOG</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>《统计学习方法》一. 概论 | ZOFVBEAF'S BLOG</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -331,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/machine-learning/cs229-1.html">
+    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/统计学习方法/statistical_learning_method.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zofvbeaf">
@@ -348,7 +348,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">CS229 lesson 1 Supervised Learning Setup. Linear Regression.</h2>
+          <h2 class="post-title" itemprop="name headline">《统计学习方法》一. 概论</h2>
         
 
         <div class="post-meta">
@@ -383,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">machine learning</span>
+                  <a href="/categories/统计学习方法/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学习方法</span>
                   </a>
                 </span>
 
@@ -421,17 +421,17 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
-<li>主要结合李航的《统计学习方法》进行学习</li>
 <li>只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向</li>
 <li>学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon</li>
 </ul>
 <h1 id="统计学习"><a href="#统计学习" class="headerlink" title="统计学习"></a>统计学习</h1><ul>
 <li>统计学习的特点，对象，目的，方法，研究</li>
+<li>本章主要将监督学习</li>
 </ul>
 <h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><ul>
-<li>由训练资料中学到或建立一个模式（函数 / learning model），并依此模式推测新的实例。</li>
-<li>基本概念：input space, output space, feature space</li>
-<li>其它名词：instance, feature vector, 联合概率分布</li>
+<li>从给定有限的训练数据出发, 假定数据是独立同分布的, 而且假设模型属于某个假设空间, 应用某一评价准则, 从假设空间中选取一个最优的模型, 使它对已给训练数据及未知测试数据再给定评价标准意义下有最准确的预测.</li>
+<li>基本概念：<strong>input space, output space, feature space</strong></li>
+<li>其它名词：<strong>instance, feature vector, 联合概率分布</strong></li>
 <li>假设空间: $ \mathcal{F} = \{ f\;|  \mathit{Y} = f(X) \} $</li>
 <li>最终变成求 $\min\limits_{f\in\mathcal{F}}R_{emp}(f)$ 或 $min_{f\in\mathcal{F}}R_{srm}(f)$ 的问题</li>
 </ul>
@@ -464,8 +464,8 @@
 </li>
 </ul>
 <h2 id="模型评估与选择"><a href="#模型评估与选择" class="headerlink" title="模型评估与选择"></a>模型评估与选择</h2><ul>
-<li>训练误差(tranning error): 模型关于训练数据集的平均损失</li>
-<li>测试误差(test error): 模型关于测试数据集的平均损失, 反映了模型的预测能力(泛化能力 generalization ability)</li>
+<li>训练误差(<strong>tranning error</strong>): 模型关于训练数据集的平均损失</li>
+<li>测试误差(<strong>test error</strong>): 模型关于测试数据集的平均损失, 反映了模型的预测能力(泛化能力 <strong>generalization ability</strong>)</li>
 <li>过拟合: 所选模型参数过多, 对训练数据预测的很好, 对测试数据预测的很差</li>
 <li>模型选择时要选择复杂度适当的模型, 防止过拟合.</li>
 </ul>
@@ -496,7 +496,43 @@
 <li>训练误差小的模型, 泛化误差也会小</li>
 </ul>
 <h2 id="生成模型与判别模型"><a href="#生成模型与判别模型" class="headerlink" title="生成模型与判别模型"></a>生成模型与判别模型</h2><ul>
-<li>监督学习的方法可以分为: 生成方法(generative approach)和判别方法(discriminative approach)</li>
+<li>监督学习的方法可以分为: 生成方法(<strong>generative approach</strong>)和判别方法(<strong>discriminative approach</strong>)</li>
+<li>生成方法: 先学习$P(X,Y)$再求出$P(Y|X) = \frac{P(X,Y)}{P(X)}$<blockquote>
+<p>如:朴素贝叶斯法和隐马尔可夫模型</p>
+</blockquote>
+</li>
+<li>判别方法: 直接学习$f(X)$或$P(X,Y)$<blockquote>
+<p>如:$k$近邻法, 感知机, 决策树,  逻辑斯蒂回归模型, 最大熵模型, 支持向量机, 提升方法和条件随机场等<br>存在隐变量时, 判别方法不能用</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><ul>
+<li>$P(Y|X)$作为分类器 </li>
+<li>分类准确率(<strong>accuracy</strong>): 对于给定的测试数据集, 分类正确的样本数与总样本数之比</li>
+<li>精确率(<strong>precision</strong>):$P = \frac{TP}{TP+FP}$ <blockquote>
+<p>True, False, Positive, Negative</p>
+</blockquote>
+</li>
+<li>召回率(<strong>recall</strong>): $R = \frac{TP}{TP+FN}$</li>
+<li>$P$和$R$的调和均值$F_1$: $\frac{1}{F_1} = \frac{1}{P} + \frac{1}{R}$, 即$F_1 = \frac{2TP}{2TP+FP+FN}$</li>
+<li>许多统计学习方法可以用于分类<blockquote>
+<p>如: $k$近邻法, 感知机, 朴素贝叶斯法, 决策树, 决策列表, 逻辑斯蒂回归模型, 支持向量机, 提升方法, 贝叶斯网络, 神经网络, Winnow等</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="标注-tagging-问题"><a href="#标注-tagging-问题" class="headerlink" title="标注(tagging)问题"></a>标注(tagging)问题</h2><ul>
+<li>可以认为书分类问题的推广，也是更复杂的结构预测(<strong>structure prediction</strong>)问题的简单形式</li>
+<li>输入一个观测序列$x_{N+1} = (x_{N+1}^{(1)}, x_{N+1}^{(2)}, x_{N+1}^{(3)}, … ,x_{N+1}^{(n)})^T$, 找到使条件概率$$P((y_{N+1}^{(1)}, y_{N+1}^{(2)}, y_{N+1}^{(3)}, … ,y_{N+1}^{(n)})|(x_{N+1}^{(1)}, x_{N+1}^{(2)}, x_{N+1}^{(3)}, … ,x_{N+1}^{(n)})$$最大的标记序列$y_{N+1} = (y_{N+1}^{(1)}, y_{N+1}^{(2)}, y_{N+1}^{(3)}, … ,y_{N+1}^{(n)})^T$<blockquote>
+<p>常用的标注方法:隐马尔科夫模型`和条件随机场</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h2><ul>
+<li>等价于函数拟合: 选择一条函数曲线使其很好地拟合已知数据且很好地预测未知数据</li>
+<li>分类<blockquote>
+<p>按输入变量的个数: 一元回归和多元回归<br>输入与输出变量的关系模型: 线性回归和非线性回归<br>损失函数是平方损失函数时: 可用最小二乘法(<strong>least squares</strong>)求解</p>
+</blockquote>
+</li>
 </ul>
 
       
@@ -515,9 +551,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CS229/" rel="tag"><i class="fa fa-tag"></i> CS229</a>
+            <a href="/tags/统计学习方法/" rel="tag"><i class="fa fa-tag"></i> 统计学习方法</a>
           
             <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+          
+            <a href="/tags/book/" rel="tag"><i class="fa fa-tag"></i> book</a>
           
         </div>
       
@@ -639,7 +677,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -688,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计学习"><span class="nav-number">2.</span> <span class="nav-text">统计学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#监督学习"><span class="nav-number">2.1.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计学习三要素"><span class="nav-number">2.2.</span> <span class="nav-text">统计学习三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#策略"><span class="nav-number">2.2.1.</span> <span class="nav-text">策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型评估与选择"><span class="nav-number">2.3.</span> <span class="nav-text">模型评估与选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化与交叉验证"><span class="nav-number">2.4.</span> <span class="nav-text">正则化与交叉验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-number">2.4.1.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-number">2.4.2.</span> <span class="nav-text">交叉验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛化能力"><span class="nav-number">2.5.</span> <span class="nav-text">泛化能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">2.6.</span> <span class="nav-text">生成模型与判别模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计学习"><span class="nav-number">2.</span> <span class="nav-text">统计学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#监督学习"><span class="nav-number">2.1.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计学习三要素"><span class="nav-number">2.2.</span> <span class="nav-text">统计学习三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#策略"><span class="nav-number">2.2.1.</span> <span class="nav-text">策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型评估与选择"><span class="nav-number">2.3.</span> <span class="nav-text">模型评估与选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化与交叉验证"><span class="nav-number">2.4.</span> <span class="nav-text">正则化与交叉验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-number">2.4.1.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-number">2.4.2.</span> <span class="nav-text">交叉验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛化能力"><span class="nav-number">2.5.</span> <span class="nav-text">泛化能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">2.6.</span> <span class="nav-text">生成模型与判别模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类问题"><span class="nav-number">2.7.</span> <span class="nav-text">分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标注-tagging-问题"><span class="nav-number">2.8.</span> <span class="nav-text">标注(tagging)问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归问题"><span class="nav-number">2.9.</span> <span class="nav-text">回归问题</span></a></li></ol></li></ol></div>
             
 
           </div>
