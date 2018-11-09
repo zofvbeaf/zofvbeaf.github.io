@@ -738,8 +738,7 @@
 
       
         
-          
-            <h1 id="感知机-preceptron"><a href="#感知机-preceptron" class="headerlink" title="感知机(preceptron)"></a>感知机(preceptron)</h1><blockquote>
+          <h1 id="感知机-preceptron"><a href="#感知机-preceptron" class="headerlink" title="感知机(preceptron)"></a>感知机(preceptron)</h1><blockquote>
 <p>属于判别模型, 输入为实例的特征向量, 输出为实例的类别<br>是一种线性分类模型</p>
 </blockquote>
 <h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><ul>
@@ -756,22 +755,13 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="感知机学习算法"><a href="#感知机学习算法" class="headerlink" title="感知机学习算法"></a>感知机学习算法</h2><ul>
-<li>即求解$\displaystyle \min_{\omega, b} L(\omega, b)$的最优化问题<blockquote>
-<p>任意选取一个超平面$\omega_0, b_0$, 然后用梯度下降法不断地极小化目标函数<br>选取$y_i(\omega\cdot x_i + b) \le 0$<br>$$ \omega \gets \omega + \eta y_i x_i$$ $$ b \gets b + \eta y_i $$<br>$\eta(0\le\eta\lt 0)$是步长, 又称为学习率</p>
-</blockquote>
-</li>
-<li>算法的收敛性证明<blockquote>
-<p>即证明: 设数据集是线性可分的, 经过有限次迭代可以得到一个将训练数据集完全正确划分的分离超平面及感知机模型<br>最终得到误分类次数$k \le (\frac{R}{\gamma})^2$, 其中$\displaystyle R = \max_{1\le i \le N}\parallel \hat{x}_i \parallel$<br>当训练集线性不可分时, 算法不收敛, 迭代结果会发生震荡</p>
-</blockquote>
-</li>
-<li>对偶形式<blockquote>
-<p>感知机模型$\displaystyle f(x) = sign(\sum_{j=1}^N \alpha_j y_j x_j\cdot x + b)$<br>其中$\alpha_i = n_i\eta$, 且迭代过程为: $\begin{cases} \alpha_i &amp; \gets \alpha_i + \eta \\ b &amp; \gets b + \eta y_i \end{cases}$</p>
-</blockquote>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/统计学习方法/statistical-learning-method-2.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
