@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="ZOFVBEAF&#39;S BLOG">
 <meta property="og:description" content="前言 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究 本章主要将监督学习  监督学习 从给定有限的训练数据出发, 假定数据是独立同分布的, 而且假设模型属于某个假设空间, 应用某一评价准则, 从假设空间中选取一个最优的模型, 使它对">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-09T06:37:14.303Z">
+<meta property="og:updated_time" content="2018-11-10T12:42:03.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《统计学习方法》一. 概论">
 <meta name="twitter:description" content="前言 只摘录关键知识点，不做详细笔记，仅为方便日后复习有个方向 学习: 如果一个系统能够通过执行某个过程改进它的性能，这就是学习。 — Herbert A. Simon  统计学习 统计学习的特点，对象，目的，方法，研究 本章主要将监督学习  监督学习 从给定有限的训练数据出发, 假定数据是独立同分布的, 而且假设模型属于某个假设空间, 应用某一评价准则, 从假设空间中选取一个最优的模型, 使它对">
@@ -490,8 +490,8 @@
 </ul>
 <h2 id="泛化能力"><a href="#泛化能力" class="headerlink" title="泛化能力"></a>泛化能力</h2><ul>
 <li>即模型$\hat{f}$的预测能力, 用$R_{exp}(\hat{f})$来表示</li>
-<li>泛化误差上界: $R(f) \le \hat{R}(f) + \epsilon(d, N, \delta)$<blockquote>
-<p>$R(f)$为泛化误差<br>$\le$右边为泛化误差上界<br>$\hat{R}(f)$为训练误差<br>$\epsilon(d, N, \delta) = \sqrt{\frac{1}{2N}(\log d + \log \frac{1}{\delta})}$</p>
+<li>泛化误差上界: $R(f) \le \hat{R}(f) + \varepsilon(d, N, \delta)$<blockquote>
+<p>$R(f)$为泛化误差<br>$\le$右边为泛化误差上界<br>$\hat{R}(f)$为训练误差<br>$\varepsilon(d, N, \delta) = \sqrt{\frac{1}{2N}(\log d + \log \frac{1}{\delta})}$</p>
 </blockquote>
 </li>
 <li>训练误差小的模型, 泛化误差也会小</li>
@@ -502,7 +502,7 @@
 <p>如:朴素贝叶斯法和隐马尔可夫模型</p>
 </blockquote>
 </li>
-<li>判别方法: 直接学习$f(X)$或$P(X,Y)$<blockquote>
+<li>判别方法: 直接学习$f(X)$或$P(Y|X)$<blockquote>
 <p>如:$k$近邻法, 感知机, 决策树,  逻辑斯蒂回归模型, 最大熵模型, 支持向量机, 提升方法和条件随机场等<br>存在隐变量时, 判别方法不能用</p>
 </blockquote>
 </li>
@@ -660,7 +660,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

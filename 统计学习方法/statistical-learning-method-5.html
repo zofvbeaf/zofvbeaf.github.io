@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
+  <meta name="keywords" content="统计学习方法,machine learning,book,">
 
 
 
@@ -115,17 +115,18 @@
 
 
 
-<meta name="description" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://zofvbeaf.github.io/categories/index.html">
+<meta name="description" content="决策树 决策树是一种基本的分类与回归方法 本质上是从训练数据集归纳出一组分类规则 决策树学习通常包括三个步骤: 特征选择, 决策树的生成和决策树的修剪 内部节点表示一个特征或属性, 叶节点表示一个类  决策树模型与学习 损失函数通常是正则化的极大似然函数 需要自下而上进行剪枝, 去掉过于细分的叶节点, 使其回退到父节点, 甚至更高的节点, 避免过拟合, 使其有更好的泛化能力 决策树的生成只考虑局部">
+<meta name="keywords" content="统计学习方法,machine learning,book">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《统计学习方法》五.决策树">
+<meta property="og:url" content="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-5.html">
 <meta property="og:site_name" content="ZOFVBEAF&#39;S BLOG">
-<meta property="og:description" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
+<meta property="og:description" content="决策树 决策树是一种基本的分类与回归方法 本质上是从训练数据集归纳出一组分类规则 决策树学习通常包括三个步骤: 特征选择, 决策树的生成和决策树的修剪 内部节点表示一个特征或属性, 叶节点表示一个类  决策树模型与学习 损失函数通常是正则化的极大似然函数 需要自下而上进行剪枝, 去掉过于细分的叶节点, 使其回退到父节点, 甚至更高的节点, 避免过拟合, 使其有更好的泛化能力 决策树的生成只考虑局部">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-07T12:50:54.701Z">
+<meta property="og:updated_time" content="2018-11-10T14:06:12.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="database, distributed system, algorithm, programming, linux, c++, networking, machine learning, deep learning">
+<meta name="twitter:title" content="《统计学习方法》五.决策树">
+<meta name="twitter:description" content="决策树 决策树是一种基本的分类与回归方法 本质上是从训练数据集归纳出一组分类规则 决策树学习通常包括三个步骤: 特征选择, 决策树的生成和决策树的修剪 内部节点表示一个特征或属性, 叶节点表示一个类  决策树模型与学习 损失函数通常是正则化的极大似然函数 需要自下而上进行剪枝, 去掉过于细分的叶节点, 使其回退到父节点, 甚至更高的节点, 避免过拟合, 使其有更好的泛化能力 决策树的生成只考虑局部">
 
 
 
@@ -155,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="http://zofvbeaf.github.io/categories/">
+  <link rel="canonical" href="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-5.html">
 
 
 
 
 
-  <title>categories | ZOFVBEAF'S BLOG</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>《统计学习方法》五.决策树 | ZOFVBEAF'S BLOG</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -318,40 +319,203 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/统计学习方法/statistical-learning-method-5.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zofvbeaf">
+      <meta itemprop="description" content="浮世梦中梦，布衣裁不裁，弹狭狂歌莫浪猜。埋，贤愚何用哉。青山在，月明归去来。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZOFVBEAF'S BLOG">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">categories</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body han-init-context">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                2 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/paper-reading/">paper reading</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/统计学习方法/">统计学习方法</a><span class="category-list-count">5</span></li></ul>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">《统计学习方法》五.决策树</h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-10T20:03:11+08:00">
+                2018-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计学习方法/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学习方法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><ul>
+<li>决策树是一种基本的分类与回归方法</li>
+<li>本质上是从训练数据集归纳出一组分类规则</li>
+<li>决策树学习通常包括三个步骤: 特征选择, 决策树的生成和决策树的修剪</li>
+<li>内部节点表示一个特征或属性, 叶节点表示一个类</li>
+</ul>
+<h2 id="决策树模型与学习"><a href="#决策树模型与学习" class="headerlink" title="决策树模型与学习"></a>决策树模型与学习</h2><ul>
+<li>损失函数通常是正则化的极大似然函数</li>
+<li>需要自下而上进行剪枝, 去掉过于细分的叶节点, 使其回退到父节点, 甚至更高的节点, 避免过拟合, 使其有更好的泛化能力</li>
+<li>决策树的生成只考虑局部最优, 决策树的生成则考虑全局最优</li>
+</ul>
+<h2 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h2><ul>
+<li>通常的特征选择的准则是信息增益或信息增益比</li>
+<li>熵(<strong>entropy</strong>): $\displaystyle H(p) = \sum_{i=1}^n p_i \log p_i$</li>
+<li>条件熵(<strong>conditional entropy</strong>): $\displaystyle H(Y|X) = \sum_{i=1}^n p_i H(Y|X=x_i)$</li>
+<li>当熵和条件熵中的概率由数据估计(特别是极大似然估计得到)时, 所对应的熵与条件熵分别称为经验熵与经验条件熵</li>
+<li>信息增益表示得知特征$X$的信息而使得类$Y$的信息的不确定性减少的程度</li>
+<li>特征$A$对训练数据集$D$的信息增益$g(D,A) = H(D) - H(D|A)$, 也成为互信息(<strong>mutual information</strong>)</li>
+<li>信息增益比:<br>$$g_R (D,A) = \frac{g(D,A)}{H_A(D)}$$<br>其中，$H_A (D)$表示训练数据集$D$关于特征$A$的值的熵<br>$$\displaystyle H_A (D) = -\sum_{i=1}^n \frac{|D_i|}{D} \log_2 \frac{|D_i|}{D}$$</li>
+</ul>
+<h2 id="决策树的生成"><a href="#决策树的生成" class="headerlink" title="决策树的生成"></a>决策树的生成</h2><h3 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a>ID3算法</h3><blockquote>
+<p>输入: 训练数据集D, 特征集A, 阈值\varepsilon<br>每次选择$ g(D,A) $最大的特征点递归构建, 直到所有特征的$g(D,A)$均很小($\lt\varepsilon$)或没有特征可以选择为止</p>
+</blockquote>
+<h3 id="C4-5算法"><a href="#C4-5算法" class="headerlink" title="C4.5算法"></a>C4.5算法</h3><ul>
+<li>用信息增益比来选择特征</li>
+</ul>
+<h2 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a>决策树的剪枝</h2><ul>
+<li>损失函数: $C_\alpha (T) = C(T) + \alpha |T|$, 其中<br>$$\displaystyle C(T) = \sum_{t=1}^{|T|}N_t H_t (T) \;\;\;\;\;  H_t (T) = -\sum_k \frac{N_{tk}}{N_t} \log \frac{N_{tk}}{N_t}$$<br>$N_{tk}$表示树$T$的某一叶节点$t$的第$k$类样本点的数量</li>
+<li>若一组叶节点回缩前后的树分别为$T_B$和$T_A$, 当$C_\alpha (T_A) \le C_\alpha (T_B)$时进行剪枝, 将父节点变为新的叶节点</li>
+<li>利用损失函数最小原则进行剪枝就是用正则化的极大似然估计进行模型选择 </li>
+</ul>
+<h2 id="CART算法"><a href="#CART算法" class="headerlink" title="CART算法"></a>CART算法</h2><blockquote>
+<p>分类与回归树(Classification and Regression Trees)<br>递归构建二叉决策树再剪枝</p>
+</blockquote>
+<h3 id="CART生成"><a href="#CART生成" class="headerlink" title="CART生成"></a>CART生成</h3>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/统计学习方法/" rel="tag"><i class="fa fa-tag"></i> 统计学习方法</a>
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+          
+            <a href="/tags/book/" rel="tag"><i class="fa fa-tag"></i> book</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/统计学习方法/statistical-learning-method-4.html" rel="next" title="《统计学习方法》四. 朴素贝叶斯法">
+                <i class="fa fa-chevron-left"></i> 《统计学习方法》四. 朴素贝叶斯法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -384,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -463,6 +636,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树模型与学习"><span class="nav-number">1.1.</span> <span class="nav-text">决策树模型与学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征选择"><span class="nav-number">1.2.</span> <span class="nav-text">特征选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的生成"><span class="nav-number">1.3.</span> <span class="nav-text">决策树的生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法"><span class="nav-number">1.3.1.</span> <span class="nav-text">ID3算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C4-5算法"><span class="nav-number">1.3.2.</span> <span class="nav-text">C4.5算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的剪枝"><span class="nav-number">1.4.</span> <span class="nav-text">决策树的剪枝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CART算法"><span class="nav-number">1.5.</span> <span class="nav-text">CART算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CART生成"><span class="nav-number">1.5.1.</span> <span class="nav-text">CART生成</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
