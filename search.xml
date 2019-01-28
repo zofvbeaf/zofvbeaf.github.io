@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Pipelined Query Processing in Coprocessor Environments]]></title>
-    <url>%2Fpaper-reading%2FPipelined-Query-Processing-in-Coprocessor-Environments.html</url>
-    <content type="text"><![CDATA[基于Pipeline执行环境的DAG拓扑生成基于分布式Pipeline执行环境的Data Partition策略基于Pipeline执行环境的查询编译单机调度策略基于Pipeline执行环境的任务重组策略异构环境下基于Pipeline执行方式的任务重组策略异构环境下基于Pipeline执行方式的任务调度策略]]></content>
-      <categories>
-        <category>paper reading</category>
-      </categories>
-      <tags>
-        <tag>paper reading</tag>
-        <tag>database</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[gcc]]></title>
-    <url>%2Fgcc%2Fgcc.html</url>
-    <content type="text"><![CDATA[GCC Cheat Sheet]]></content>
-      <categories>
-        <category>gcc</category>
-      </categories>
-      <tags>
-        <tag>gcc</tag>
-        <tag>compiler</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[os]]></title>
     <url>%2Foperating-system%2Fos.html</url>
     <content type="text"><![CDATA[6.828 operating system engneeringgoals Understand operating system design and implementationHands-on experience by building small O/S]]></content>
@@ -44,17 +20,6 @@
       </categories>
       <tags>
         <tag>tpch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[DAG split]]></title>
-    <url>%2Fscheduling-algorithm%2Fdag-split.html</url>
-    <content type="text"><![CDATA[DAG 分裂及调度输入参数DAG 表示 $ E = {() } $]]></content>
-      <categories>
-        <category>scheduling algorithm</category>
-      </categories>
-      <tags>
-        <tag>scheduling algorithm</tag>
       </tags>
   </entry>
   <entry>
