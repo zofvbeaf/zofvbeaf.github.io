@@ -2,23 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://zofvbeaf.github.io/gcc/gcc.html</loc>
+    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method.html</loc>
     
-    <lastmod>2019-01-16T03:42:35.192Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/operating-system/os.html</loc>
-    
-    <lastmod>2019-01-16T03:31:05.473Z</lastmod>
+    <lastmod>2019-06-27T07:11:06.311Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://zofvbeaf.github.io/scheduling-algorithm/dag-split.html</loc>
+    <loc>http://zofvbeaf.github.io/code-reading/peloton-optimizer.html</loc>
     
-    <lastmod>2019-01-16T01:23:57.199Z</lastmod>
+    <lastmod>2019-06-27T06:57:04.818Z</lastmod>
     
   </url>
   
@@ -33,69 +26,6 @@
     <loc>http://zofvbeaf.github.io/scheduling-algorithm/scheduling-algorithms.html</loc>
     
     <lastmod>2018-11-22T06:20:29.438Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/paper-reading/Pipelined-Query-Processing-in-Coprocessor-Environments.html</loc>
-    
-    <lastmod>2018-11-13T02:41:22.593Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/slides/query_optimzer.html</loc>
-    
-    <lastmod>2018-11-13T01:21:09.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method-7.html</loc>
-    
-    <lastmod>2018-11-12T03:25:46.759Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method-6.html</loc>
-    
-    <lastmod>2018-11-11T09:41:52.725Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method-5.html</loc>
-    
-    <lastmod>2018-11-11T08:59:06.794Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method-1.html</loc>
-    
-    <lastmod>2018-11-10T12:42:03.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method-4.html</loc>
-    
-    <lastmod>2018-11-10T12:00:50.092Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method-3.html</loc>
-    
-    <lastmod>2018-11-10T07:22:21.209Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method-2.html</loc>
-    
-    <lastmod>2018-11-09T08:40:50.782Z</lastmod>
     
   </url>
   
