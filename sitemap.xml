@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zofvbeaf.github.io/database/tpch.html</loc>
+    
+    <lastmod>2019-06-27T07:37:23.876Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zofvbeaf.github.io/scheduling-algorithm/scheduling-algorithms.html</loc>
+    
+    <lastmod>2019-06-27T07:36:57.084Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zofvbeaf.github.io/cpp/cpp-notes.html</loc>
+    
+    <lastmod>2019-06-27T07:36:38.969Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zofvbeaf.github.io/code-reading/peloton-optimizer.html</loc>
+    
+    <lastmod>2019-06-27T07:36:25.380Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zofvbeaf.github.io/design-pattern/design-patterns.html</loc>
     
     <lastmod>2019-06-27T07:28:45.405Z</lastmod>
@@ -9,37 +37,9 @@
   </url>
   
   <url>
-    <loc>http://zofvbeaf.github.io/cpp/cpp-notes.html</loc>
-    
-    <lastmod>2019-06-27T07:24:15.818Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://zofvbeaf.github.io/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/statistical-learning-method.html</loc>
     
     <lastmod>2019-06-27T07:11:06.311Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/code-reading/peloton-optimizer.html</loc>
-    
-    <lastmod>2019-06-27T06:57:04.818Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/database/tpch.html</loc>
-    
-    <lastmod>2019-01-14T02:09:01.075Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zofvbeaf.github.io/scheduling-algorithm/scheduling-algorithms.html</loc>
-    
-    <lastmod>2018-11-22T06:20:29.438Z</lastmod>
     
   </url>
   

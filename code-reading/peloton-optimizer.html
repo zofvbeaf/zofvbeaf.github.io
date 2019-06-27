@@ -137,7 +137,7 @@
 <meta property="og:image" content="http://zofvbeaf.github.io/images/1561453854406.png">
 <meta property="og:image" content="http://zofvbeaf.github.io/images/1561454370741.png">
 <meta property="og:image" content="http://zofvbeaf.github.io/images/1561454381123.png">
-<meta property="og:updated_time" content="2019-06-27T06:57:04.818Z">
+<meta property="og:updated_time" content="2019-06-27T07:36:25.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CMU Peloton Optimizer">
 <meta name="twitter:description" content="优化器BuildParseTree libpg_query：裁剪出的postgresql的语法解析和词法解析。  BuildParseTree：对parser生成的语法树进行解析，得到SelectStatement，其中记录了语句的各个组件。 1234567891011class SelectStatement : public SQLStatement &amp;#123;  std::unique_p">
@@ -442,6 +442,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SelectStatement</span> :</span> <span class="keyword">public</span> SQLStatement &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;TableRef&gt; from_table;</span><br><span class="line">  <span class="keyword">bool</span> select_distinct;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;expression::AbstractExpression&gt;&gt; select_list;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;expression::AbstractExpression&gt; where_clause;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;GroupByDescription&gt; group_by;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;SelectStatement&gt; union_select;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;OrderDescription&gt; order;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;LimitDescription&gt; limit;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="BindNameToNode"><a href="#BindNameToNode" class="headerlink" title="BindNameToNode"></a>BindNameToNode</h3><ul>
 <li>主要是用于检查<code>SelectStatement</code>中涉及的列的合法性，并将列的属性（如属于哪一张表）填入各表达式。</li>
 </ul>
