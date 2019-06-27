@@ -330,6 +330,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/cat/os.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zofvbeaf">
+      <meta itemprop="description" content="浮世梦中梦，布衣裁不裁，弹狭狂歌莫浪猜。埋，贤愚何用哉。青山在，月明归去来。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZOFVBEAF'S BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/cat/os.html" itemprop="url">os</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-27T18:59:06+08:00">
+                2019-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/cat/" itemprop="url" rel="index">
+                    <span itemprop="name">cat</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-Course"><a href="#1-Course" class="headerlink" title="1. Course"></a>1. Course</h2><ul>
+<li><a href="https://pdos.csail.mit.edu/6.828/2018/schedule.html" target="_blank" rel="noopener">MIT 6.828</a></li>
+<li><a href="http://staff.ustc.edu.cn/~xlanchen/OperatingSystemConcepts2017Spring/OperatingSystem2017Spring.htm" target="_blank" rel="noopener">ustc os</a></li>
+<li><a href="http://staff.ustc.edu.cn/~xlanchen/ULK2014Fall/ULK2014Fall.html" target="_blank" rel="noopener">ustc linux操作系统分析</a></li>
+<li><a href="http://www.scs.stanford.edu/17sp-cs240/syllabus/" target="_blank" rel="noopener">stanford cs240</a></li>
+<li><a href="https://www.cs.cmu.edu/~410/" target="_blank" rel="noopener">cmu 15410</a></li>
+</ul>
+<h2 id="2-系统启动"><a href="#2-系统启动" class="headerlink" title="2. 系统启动"></a>2. 系统启动</h2><blockquote>
+<p>现代计算机使用UEFI，可以一次加载超过512B的boot sector。</p>
+<p>以下为JOS启动流程。</p>
+</blockquote>
+<ul>
+<li>计算机通电后先读取BIOS，加载到<code>960KB~1MB</code>地址出。</li>
+<li>BIOS进行硬件自检，同时打印硬件信息在屏幕上。有问题蜂鸣器会响。</li>
+<li>之后计算机读取BIOS设置好的优先级最高的外部存储设备。读取第一个扇区（512字节，即主引导记录<code>MBR</code>）到<code>0x7c00</code>处。如果这个扇区最后两个字节是<code>0x55</code>和<code>0XAA</code>表明可以启动，否则不能。</li>
+<li>主引导记录即<code>boot.S</code>，其中的主要流程包括：<ul>
+<li>关中断，开<code>A20</code>线（兼容性问题，寻找范围更大），加载<code>段表</code>(<code>lgdt gdtdesc</code>)（包含操作系统内核的段信息），寻址方式变为<code>segment:offset</code></li>
+<li>设置<code>CR0</code>寄存器的<code>CR0_PE_ON</code>为1：从实模式（16bit寻址）切换到保护模式（32bit寻址）<ul>
+<li><code>实模式</code>下寻址方式：<code>物理地址 = 段基址&lt;&lt;4 + 段内偏移</code>，早期寄存器是16位，地址线是20位，只能访问1MB<ul>
+<li>例如：<code>%cs = xff00</code>，<code>%ax = 0x0110</code>，则物理地址为：<code>0xff00&lt;&lt;4 + 0x0110 = 0xff110</code></li>
+</ul>
+</li>
+<li>保护模式下寻址方式：<code>segment:offset</code>，segment找到该段的基址base，（检查flags可访问的话）之后直接与offset相加得到线性地址，如果没有分页则线性地址等于物理地址。<ul>
+<li>程序员看到的是虚拟地址，但指令中出现的是逻辑地址即<code>segment:offset</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>跳转到保护模式代码段，该段主要执行：<ul>
+<li>设置各寄存器的值，包括cs指令地址，ds数据段地址，ss栈指针等，jos设置其指向<code>0x7c00</code></li>
+<li><code>call bootmain</code>：即<code>boot/main.c</code>中的代码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>bootmain</code>的主要工作：<ul>
+<li>将硬盘上的<code>kernel</code>加载到内存里的<code>0x10000</code>处，其中<code>.text</code>段在<code>0x100000</code>处。并执行<code>ELFHDR-&gt;e_entry</code>(<code>0x10000C</code>处，<code>boot/entry.S</code>)。内核映像为ELF格式。<ul>
+<li>entry处的代码主要：这是CR3寄存器，开启分页，设置内核堆栈的起始地址（<code>0xf0110000</code>），之后<code>call  i386_init</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/cat/os.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/design-pattern/design-patterns.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1474,7 +1662,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1485,7 +1673,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1496,7 +1684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="tags1,tags2,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. Course MIT 6.828 ustc os ustc linux操作系统分析 stanford cs240 cmu 15410  2. 系统启动 现代计算机使用UEFI，可以一次加载超过512B的boot sector。 以下为JOS启动流程。   计算机通电后先读取BIOS，加载到960KB~1MB地址出。 BIOS进行硬件自检，同时打印硬件信息在屏幕上。有问题蜂鸣器会响。 之后计算">
+<meta name="keywords" content="tags1,tags2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="os">
+<meta property="og:url" content="http://zofvbeaf.github.io/cat/os.html">
+<meta property="og:site_name" content="ZOFVBEAF&#39;S BLOG">
+<meta property="og:description" content="1. Course MIT 6.828 ustc os ustc linux操作系统分析 stanford cs240 cmu 15410  2. 系统启动 现代计算机使用UEFI，可以一次加载超过512B的boot sector。 以下为JOS启动流程。   计算机通电后先读取BIOS，加载到960KB~1MB地址出。 BIOS进行硬件自检，同时打印硬件信息在屏幕上。有问题蜂鸣器会响。 之后计算">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/77451733gy1g4fwwl4iyhj20d907jq3f.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/77451733gy1g4fwwyn6poj20dj089wf3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/77451733gy1g4fwxk0nauj20df0aaaat.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/77451733gy1g4fwxwnv4nj20fe0aywho.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/77451733gy1g4fwya12bnj214g0b0n27.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/77451733gy1g4fwys48n0j210s0k646v.jpg">
+<meta property="og:updated_time" content="2019-06-27T10:59:59.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="os">
+<meta name="twitter:description" content="1. Course MIT 6.828 ustc os ustc linux操作系统分析 stanford cs240 cmu 15410  2. 系统启动 现代计算机使用UEFI，可以一次加载超过512B的boot sector。 以下为JOS启动流程。   计算机通电后先读取BIOS，加载到960KB~1MB地址出。 BIOS进行硬件自检，同时打印硬件信息在屏幕上。有问题蜂鸣器会响。 之后计算">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/77451733gy1g4fwwl4iyhj20d907jq3f.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zofvbeaf.github.io/cat/os.html">
+
+
+
+
+
+  <title>os | ZOFVBEAF'S BLOG</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZOFVBEAF'S BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Bazinga !</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zofvbeaf.github.io/cat/os.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zofvbeaf">
+      <meta itemprop="description" content="浮世梦中梦，布衣裁不裁，弹狭狂歌莫浪猜。埋，贤愚何用哉。青山在，月明归去来。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZOFVBEAF'S BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">os</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-27T18:59:06+08:00">
+                2019-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/cat/" itemprop="url" rel="index">
+                    <span itemprop="name">cat</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-Course"><a href="#1-Course" class="headerlink" title="1. Course"></a>1. Course</h2><ul>
+<li><a href="https://pdos.csail.mit.edu/6.828/2018/schedule.html" target="_blank" rel="noopener">MIT 6.828</a></li>
+<li><a href="http://staff.ustc.edu.cn/~xlanchen/OperatingSystemConcepts2017Spring/OperatingSystem2017Spring.htm" target="_blank" rel="noopener">ustc os</a></li>
+<li><a href="http://staff.ustc.edu.cn/~xlanchen/ULK2014Fall/ULK2014Fall.html" target="_blank" rel="noopener">ustc linux操作系统分析</a></li>
+<li><a href="http://www.scs.stanford.edu/17sp-cs240/syllabus/" target="_blank" rel="noopener">stanford cs240</a></li>
+<li><a href="https://www.cs.cmu.edu/~410/" target="_blank" rel="noopener">cmu 15410</a></li>
+</ul>
+<h2 id="2-系统启动"><a href="#2-系统启动" class="headerlink" title="2. 系统启动"></a>2. 系统启动</h2><blockquote>
+<p>现代计算机使用UEFI，可以一次加载超过512B的boot sector。</p>
+<p>以下为JOS启动流程。</p>
+</blockquote>
+<ul>
+<li>计算机通电后先读取BIOS，加载到<code>960KB~1MB</code>地址出。</li>
+<li>BIOS进行硬件自检，同时打印硬件信息在屏幕上。有问题蜂鸣器会响。</li>
+<li>之后计算机读取BIOS设置好的优先级最高的外部存储设备。读取第一个扇区（512字节，即主引导记录<code>MBR</code>）到<code>0x7c00</code>处。如果这个扇区最后两个字节是<code>0x55</code>和<code>0XAA</code>表明可以启动，否则不能。</li>
+<li>主引导记录即<code>boot.S</code>，其中的主要流程包括：<ul>
+<li>关中断，开<code>A20</code>线（兼容性问题，寻找范围更大），加载<code>段表</code>(<code>lgdt gdtdesc</code>)（包含操作系统内核的段信息），寻址方式变为<code>segment:offset</code></li>
+<li>设置<code>CR0</code>寄存器的<code>CR0_PE_ON</code>为1：从实模式（16bit寻址）切换到保护模式（32bit寻址）<ul>
+<li><code>实模式</code>下寻址方式：<code>物理地址 = 段基址&lt;&lt;4 + 段内偏移</code>，早期寄存器是16位，地址线是20位，只能访问1MB<ul>
+<li>例如：<code>%cs = xff00</code>，<code>%ax = 0x0110</code>，则物理地址为：<code>0xff00&lt;&lt;4 + 0x0110 = 0xff110</code></li>
+</ul>
+</li>
+<li>保护模式下寻址方式：<code>segment:offset</code>，segment找到该段的基址base，（检查flags可访问的话）之后直接与offset相加得到线性地址，如果没有分页则线性地址等于物理地址。<ul>
+<li>程序员看到的是虚拟地址，但指令中出现的是逻辑地址即<code>segment:offset</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>跳转到保护模式代码段，该段主要执行：<ul>
+<li>设置各寄存器的值，包括cs指令地址，ds数据段地址，ss栈指针等，jos设置其指向<code>0x7c00</code></li>
+<li><code>call bootmain</code>：即<code>boot/main.c</code>中的代码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>bootmain</code>的主要工作：<ul>
+<li>将硬盘上的<code>kernel</code>加载到内存里的<code>0x10000</code>处，其中<code>.text</code>段在<code>0x100000</code>处。并执行<code>ELFHDR-&gt;e_entry</code>(<code>0x10000C</code>处，<code>boot/entry.S</code>)。内核映像为ELF格式。<ul>
+<li>entry处的代码主要：这是CR3寄存器，开启分页，设置内核堆栈的起始地址（<code>0xf0110000</code>），之后<code>call  i386_init</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="3-内存管理"><a href="#3-内存管理" class="headerlink" title="3. 内存管理"></a>3. <a href="https://edsionte.com/techblog/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86" target="_blank" rel="noopener">内存管理</a></h2><h3 id="3-1、分页"><a href="#3-1、分页" class="headerlink" title="3.1、分页"></a>3.1、分页</h3><ul>
+<li><p>JOS采用二级页表，CR3指向<code>page dircectory</code>，虚拟地址高10位查找<code>page dircectory</code>中的<code>Page Table Entry（PTE）</code>，每个<code>PTE</code>存放了一个页地址的高20位，PTE的低12位用作标志位，物理地址的低12位是从原虚拟地址直接拷贝过来的。</p>
+</li>
+<li><p>现代<code>X86</code>是flat模式，即只有一个段，即段基址为0，所以虚拟地址=线性地址。</p>
+<ul>
+<li>在平坦模式下，段机制在两个地方会被用上，一个是per-cpu变量（内核开发中使用），另一个是<a href="http://www.maxwellxxx.com/TLS" target="_blank" rel="noopener">线程局部存储</a>（用户态开发中使用），它们分别会用到gs段和fs段。</li>
+</ul>
+</li>
+<li><p>现代<code>X86</code>是四级页表。</p>
+</li>
+<li><p>32位三级页表</p>
+<ul>
+<li><p>PDE和PTE的每一项为32位。PD和PT的大小为4K。</p>
+</li>
+<li><p>这种模式下仅能访问到4G的物理地址空间，应用程序和内核能用到的线性地址空间为4G。</p>
+<p><img src="http://ww1.sinaimg.cn/large/77451733gy1g4fwwl4iyhj20d907jq3f.jpg" alt="1560843558017"></p>
+</li>
+</ul>
+</li>
+<li><p>32位PAE模式</p>
+<ul>
+<li><p>PDE和PTE的每一项为64位。PD和PT的大小为4K</p>
+</li>
+<li><p>这种模式下能访问到64G的物理地址空间，应用程序和内核能用到的线性地址空间为4G</p>
+<p><img src="http://ww1.sinaimg.cn/large/77451733gy1g4fwwyn6poj20dj089wf3.jpg" alt="1560843571145"></p>
+</li>
+</ul>
+</li>
+<li><p>X86_64（IA32E/AMD64）下的4级页表</p>
+<ul>
+<li><p>PDE和PTE的每一项为64位。PD和PT的大小为4K</p>
+</li>
+<li><p>理论上，这种模式下能访问到2^64大小的物理地址空间，应用程序和内核能用到的线性地址空间为2^64。实际上，能访问的线性地址空间大小为<code>2^48</code>次方。</p>
+</li>
+<li><p>在linux内核中，这四级页表分别被称为<code>PGD、PUD、PMD、PT</code>。</p>
+<p><img src="http://ww1.sinaimg.cn/large/77451733gy1g4fwxk0nauj20df0aaaat.jpg" alt="1560843673406"></p>
+</li>
+<li><p><code>PTE</code>项各字段的作用</p>
+<ul>
+<li>P位，表示PTE指向的物理内存是否存在(Present)，这可以用于标识物理页面是否被换出</li>
+<li>R/W位，表示这个页是否是可读/可写的。这可以用于fork的cow机制</li>
+<li>D位，表示这个页是否是脏页。一旦有数据写入到这个页面，CPU会自动将这个位置位。这可以用来在内核做页面回收及换入换出时，判断是否需要将这个页的数据写入到磁盘中。（实际的实现机制不清楚，但理论上是可以的）</li>
+<li>U/S位，表示这个页面是否能够在用户态下被访问，内核通过此位来识别用户空间或内核空间的页</li>
+<li>CPL（current privilege level），用两位表示，分别对应0-3共四个级别，放在CS段选择子的低两位，表示当前的运行等级（ring0-ring3）CPL&lt;3为supervisor模式，CPL=3为user模式</li>
+<li>在用户态下，访问U/S位为0的页将引起page fault，这用来阻止用户程序对内核空间的非法访问。</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/77451733gy1g4fwxwnv4nj20fe0aywho.jpg" alt="1560844318534"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2、页框管理"><a href="#3-2、页框管理" class="headerlink" title="3.2、页框管理"></a>3.2、页框管理</h3><p><img src="http://ww1.sinaimg.cn/large/77451733gy1g4fwya12bnj214g0b0n27.jpg" alt="1560848883315"></p>
+<ul>
+<li>页框号<code>pfn</code>与<code>struct page</code>之间的转换，配置了<code>SPARSEMEM_VMEMMAP</code>的情况下：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此处相当于做了一个优化，加速转换，但是mem_section还是存在的</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(CONFIG_SPARSEMEM_VMEMMAP)   </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __pfn_to_page(pfn)  (vmemmap + (pfn))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __page_to_pfn(page) (unsigned long)((page) - vmemmap)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> defined(CONFIG_SPARSEMEM)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __page_to_pfn(pg)                   \</span></span><br><span class="line">(&#123;  <span class="keyword">const</span> struct page *__pg = (pg);             \</span><br><span class="line">    <span class="keyword">int</span> __sec = page_to_section(__pg);          \</span><br><span class="line">    (<span class="keyword">unsigned</span> <span class="keyword">long</span>)(__pg - __section_mem_map_addr(__nr_to_section(__sec))); \</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __pfn_to_page(pfn)              \</span></span><br><span class="line">(&#123;  <span class="keyword">unsigned</span> <span class="keyword">long</span> __pfn = (pfn);            \</span><br><span class="line">    struct mem_section *__sec = __pfn_to_section(__pfn);    \</span><br><span class="line">    __section_mem_map_addr(__sec) + __pfn;      \</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NR_SECTION_ROOTS  DIV_ROUND_UP(NR_MEM_SECTIONS, SECTIONS_PER_ROOT) <span class="comment">//1&lt;&lt;(19/8)=2k</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SECTIONS_SHIFT  (MAX_PHYSMEM_BITS - SECTION_SIZE_BITS) <span class="comment">// 46 - 27 = 19</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NR_MEM_SECTIONS   (1UL &lt;&lt; SECTIONS_SHIFT)  <span class="comment">// 1 &lt;&lt; 19</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SECTIONS_PER_ROOT       (PAGE_SIZE / sizeof (struct mem_section))  <span class="comment">// 4k/16 = 256</span></span></span><br><span class="line"><span class="comment">// SECTION_SIZE_BITS 为 27 表示每个 section 为 128M</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mem_section</span> &#123;</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">long</span> section_mem_map; </span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> *pageblock_flags;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PAGES_PER_SECTION       (1UL &lt;&lt; PFN_SECTION_SHIFT)  <span class="comment">// 1 &lt;&lt; 15 = 32k</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PFN_SECTION_SHIFT (SECTION_SIZE_BITS - PAGE_SHIFT)  <span class="comment">// 27 - 12 = 15</span></span></span><br><span class="line"><span class="comment">// 即每个 section 管理 32k * 4k = 128M 的物理内存</span></span><br><span class="line"><span class="comment">// 每个 struct pages 大小为 64B, 即每个 section 所存的 struct page 数组的大小为 32k*64B = 2M</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局的，每个 NUMA 节点一个 pglist_data</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pglist_data</span> *<span class="title">node_data</span>[<span class="title">MAX_NUMNODES</span>] __<span class="title">read_mostly</span>;</span> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_NUMNODES    (1 &lt;&lt; NODES_SHIFT) </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NODES_SHIFT     CONFIG_NODES_SHIFT   <span class="comment">// 自己的服务器上为 10， 阿里云单核为 4 ？</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_NR_ZONES 5</span></span><br><span class="line"><span class="comment">// MAX_ZONELISTS 为 1, NUMA下 为 2, 本节点的 node_zonelists 不够可使用备用的 node_zonelists 分配</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">pglist_data</span> &#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">zone</span> <span class="title">node_zones</span>[<span class="title">MAX_NR_ZONES</span>];</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">zonelist</span> <span class="title">node_zonelists</span>[<span class="title">MAX_ZONELISTS</span>];</span></span><br><span class="line">	<span class="keyword">int</span> nr_zones;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> node_start_pfn;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">long</span> node_present_pages; <span class="comment">/* total number of physical pages */</span></span><br><span class="line">	<span class="comment">/* total size of physical page range, including holes */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> node_spanned_pages;</span><br><span class="line">	<span class="keyword">int</span> node_id;</span><br><span class="line">&#125;<span class="keyword">pg_data_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">zone</span> &#123;</span>  </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">free_area</span> <span class="title">free_area</span>[<span class="title">MAX_ORDER</span>];</span> <span class="comment">// 每个 free_area 即伙伴系统的一个2^i个连续页框的节点</span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> zone_type &#123;</span><br><span class="line">    ZONE_DMA,</span><br><span class="line">    ZONE_DMA32,</span><br><span class="line">    ZONE_NORMAL,</span><br><span class="line">    ZONE_HIGHMEM,</span><br><span class="line">    ZONE_MOVABLE,</span><br><span class="line">    ZONE_DEVICE,</span><br><span class="line">    __MAX_NR_ZONES</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// strcut page 中的 flags 成员中的某些位可以反推出该 page 属于哪一个 node 及哪一个 zone</span></span><br><span class="line"><span class="comment">// 每个zone中都有</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3、buddy系统"><a href="#3-3、buddy系统" class="headerlink" title="3.3、buddy系统"></a>3.3、buddy系统</h3><ul>
+<li>用于管理页框缓冲池，解决频繁申请不同大小的连续页框导致的外部碎片问题。    </li>
+<li>把所有的空闲页框组织为11个块链表：每个链表分别含<code>2^0~2^10</code>个连续的空闲页框。</li>
+<li>假设要找256个连续空闲页框，先定位到256对应的链表，如果没有再定位到512对应的链表，有的话就分割，并把剩余的256加入256对应的链表，以此类推。</li>
+</ul>
+<h3 id="3-4、slab分配器"><a href="#3-4、slab分配器" class="headerlink" title="3.4、slab分配器"></a>3.4、slab分配器</h3><ul>
+<li>对若干来自于buddy系统的页框块进行有效管理，以满足不同大小“对象”分配的请求。</li>
+<li>kmalloc_index函数返回kmalloc_caches数组的索引。</li>
+<li>kmalloc根据对象大小，到相应的缓冲区中进行分配。</li>
+<li>当所分配对象大于8KB时，kmalloc维护的13个缓冲区已经无法使用了。</li>
+<li>通过调用buddy系统获取页框。<br>| kmalloc_caches数组索引 | 对象大小范围（字节） |<br>| ———————- | ——————– |<br>| 1                      | (64, 96]             |<br>| 2                      | (128,   192]         |<br>| 3                      | (0,   8]             |<br>| 4                      | (8,   16]            |<br>| 5                      | (16,   32]           |<br>| 6                      | (32,   64]           |<br>| 7                      | (96,   128]          |<br>| 8                      | (192, 256]           |<br>| 9                      | (256,   512]         |<br>| 10                     | (512,   1024]        |<br>| 11                     | (1024, 2048]         |<br>| 12                     | (2048, 4096]         |<br>| 13                     | (4096,   8192]       |</li>
+</ul>
+<h3 id="3-5、kmalloc和vmalloc"><a href="#3-5、kmalloc和vmalloc" class="headerlink" title="3.5、kmalloc和vmalloc"></a>3.5、kmalloc和vmalloc</h3><ul>
+<li>kmalloc<ul>
+<li>根据<code>flags</code>找到slab中对应的<code>kmem_cache</code>（如<code>__GFP_DMA</code>，<code>__GFP_NORMAL</code>等），并从中分配内存。</li>
+<li>分配的内存地址在物理地址和虚拟地址是上都连续。</li>
+</ul>
+</li>
+<li>vmalloc<ul>
+<li>分配的内存地址虚拟地址上连续，在物理地址上不要求连续。</li>
+<li>需要建立专门的页表项把物理上不连续的页转换为虚拟地址空间上的页。映射时会出现TLB抖动，因为多次查映射表可能在<code>TLB</code>（Translation lookaside buffer，是一种硬件缓冲区）中不断切换。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-6、用户态内存管理：mmap和brk"><a href="#3-6、用户态内存管理：mmap和brk" class="headerlink" title="3.6、用户态内存管理：mmap和brk"></a>3.6、用户态内存管理：mmap和brk</h3><blockquote>
+<p>简单来说就是先从<code>per-thread vma</code>缓存中找再从红黑树中找满足大小要求的<code>vm_area_struct</code>。虚拟地址空间映射好后，物理内存的的分配与映射是通过<code>page fault</code>完成的。对于文件映射会先预读数据到内核中。如果指定了<code>populate</code>选项会直接先建立到物理内存的分配与映射。匿名映射是先创建一个创建一个临时的<code>shm file</code>（包括它的<code>dentry</code>，<code>inode</code>和<code>file</code>结构体）再与合适的<code>vma</code>映射。</p>
+</blockquote>
+<ul>
+<li><code>mmap</code>的那些范围通过<code>vm_area_struct</code>结构体管理。这个结构体以起始范围为key，通过红黑树连接起来，每个相邻的<code>vm_area_struct</code>之间同时还使用双向链表连接。</li>
+<li>用户态与<code>mmap</code>有关的流程：<ul>
+<li>调用<code>mmap</code>，映射一个文件的一部分或者一段内存空间</li>
+<li>如果<code>mmap</code>的时候要求<code>populate</code>，则需要先建立相关的映射（对于文件而言，需要预读数据到内核中，并建立映射关系；对于内存而言，需要映射相关的内存空间）</li>
+<li>在用户态的运行过程中，可能会在访问某个地址时出现<code>page fault</code>。这时，<code>page fault</code>经过层层检查，发现是<code>mmap</code>的一段区域引发的，就会去建立映射关系（如上文）。</li>
+<li>在建立好映射关系后，重新执行引起<code>page fault</code>的指令</li>
+<li>调用<code>msync</code>或者取消映射时，对于文件而言，需要将数据刷到磁盘上</li>
+<li>调用<code>munmap</code>取消映射</li>
+</ul>
+</li>
+<li><code>mmap</code>内部的实现：<ul>
+<li>通过<code>sys_mmap</code>进入内核（函数实现在<a href="https://elixir.bootlin.com/linux/v4.16.18/source" target="_blank" rel="noopener">/</a><a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch" target="_blank" rel="noopener">arch</a>/<a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch/x86" target="_blank" rel="noopener">x86</a>/<a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch/x86/kernel" target="_blank" rel="noopener">kernel</a>/<a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch/x86/kernel/sys_x86_64.c" target="_blank" rel="noopener">sys_x86_64.c</a>中） </li>
+<li>调用到了<code>sys_mmap_pgoff</code>（函数实现在<a href="https://elixir.bootlin.com/linux/v4.16.18/source" target="_blank" rel="noopener">/</a><a href="https://elixir.bootlin.com/linux/v4.16.18/source/mm" target="_blank" rel="noopener">mm</a>/<a href="https://elixir.bootlin.com/linux/v4.16.18/source/mm/mmap.c" target="_blank" rel="noopener">mmap.c</a>中）<ul>
+<li>如果是非匿名映射，获取<code>fd</code>对应的<code>file</code>。如果<code>file</code>是大页文件系统的文件，将<code>length</code>对齐到<code>2M</code></li>
+<li>否则，如果设置了<code>MAP_HUGETLB</code>标志，在大页文件系统中创建一个<code>file</code></li>
+<li>调用<code>vm_mmap_pgoff</code><ul>
+<li>安全检查</li>
+<li>调用<code>do_mmap_pgoff</code>，这个函数转发数据到<code>do_mmap</code>。<code>do_mmap</code>的流程见下文。</li>
+<li>如果用户指定了要<code>populate</code>，则调用<code>mm_populate</code>创建具体的映射关系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>完成<code>mmap</code>，将<code>file</code>的引用计数减一</li>
+</ul>
+</li>
+<li><code>do_mmap</code><ul>
+<li>参数检查</li>
+<li>获取未映射的内存区域<ul>
+<li>如果是文件映射，且<code>file-&gt;f_op-&gt;get_unmapped_area</code>不为<code>NULL</code>，则调用该函数搜索未映射的内存区域</li>
+<li>如果是共享内存映射，则调用<code>shmem_get_unmapped_area</code>搜索未映射的内存区域</li>
+<li>如果上述两者都为<code>NULL</code>，则调用<code>current-&gt;mm-&gt;get_unmapped_area</code>，该函数一般对应到<code>arch_get_unmapped_area</code>（位于<a href="https://elixir.bootlin.com/linux/v4.16.18/source" target="_blank" rel="noopener">/</a><a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch" target="_blank" rel="noopener">arch</a>/<a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch/x86" target="_blank" rel="noopener">x86</a>/<a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch/x86/kernel" target="_blank" rel="noopener">kernel</a>/<a href="https://elixir.bootlin.com/linux/v4.16.18/source/arch/x86/kernel/sys_x86_64.c" target="_blank" rel="noopener">sys_x86_64.c</a>中）</li>
+</ul>
+</li>
+<li>对其他参数进行检查</li>
+<li>调用<code>mmap_region</code>进行映射。</li>
+</ul>
+</li>
+<li><code>mmap_region</code><ul>
+<li>将映射范围内原来的那些已经被映射的空间<code>unmap</code>掉</li>
+<li>判断能否和前后范围内的<code>vma</code>合并，如果能合并，则函数返回</li>
+<li>否则，新建一个<code>vma</code>并初始化</li>
+<li>如果是文件映射，则调用<code>file-&gt;f_op-&gt;mmap</code>来进行具体的映射</li>
+<li>否则，如果是匿名共享内存映射，则创建一个临时的<code>shm file</code>（包括它的<code>dentry</code>，<code>inode</code>和<code>file</code>结构体），并使用<code>shmem_file_operations/shmem_inode_operations/shmem_aops</code>等来初始化<code>file/inode/address_space</code>，对于<code>vma</code>，使用<code>shmem_vm_ops</code>来初始化</li>
+<li>接下来，将<code>vma</code>加入到红黑树中</li>
+</ul>
+</li>
+<li><code>brk</code>也会去把已经映射的区域<code>unmap</code>掉，然后再做<code>mmap</code>。<code>brk</code>其实是一个简陋的<code>mmap</code>，它不管文件，<code>cow</code>之类的问题，只匿名映射内存。在<code>malloc</code>的实现中，有了<code>mmap</code>，一般不会去调用<code>brk</code>，因为它有可能把原来的映射给释放掉。</li>
+</ul>
+<h3 id="3-7、内核地址空间共享机制"><a href="#3-7、内核地址空间共享机制" class="headerlink" title="3.7、内核地址空间共享机制"></a>3.7、内核地址空间共享机制</h3><ul>
+<li>内核地址空间是共享的，每当<code>fork</code>一个进程时，内核会拷贝属于内核地址空间的那部分<code>pgd</code>表，使得所有的进程的<code>pgd</code>表中关于内核地址空间的部分都指向同样的<code>pud</code>表。</li>
+<li>但是在运行过程中，内核可能又在<code>vmalloc</code>区域映射了一些新的页，而其他进程是不知道的，这些进程在陷内核访问这些页时，会触发<code>page fault</code>。在<code>page fault</code>的处理例程中，会去<code>init_mm</code>中查找对应区域的这些页表项，将这些页表项拷贝到触发<code>page fault</code>的进程的页表项中。（事实上，只有<code>pgd</code>表项为空，才会触发<code>vmalloc</code>的<code>page fault</code>）</li>
+<li>对于内核<code>module</code>来说，如果在运行时动态加载了一个<code>module</code>，那么它的代码会被加载到一个专门的区域中，但这个区域并不在<code>vmalloc</code>区域内，那么内核中的其他进程怎么知道这一新映射的<code>module</code>代码的位置呢？事实上，这一区域能够被一个<code>pgd</code>表项<code>cover</code>住，那么，在<code>fork</code>的时候，所有进程的这一个<code>pgd</code>表项，已经对应到了同一个对应的<code>pud</code>页。内核在映射<code>module</code>的时候，是修改的<code>pud/pmd</code>等页表项，其他进程自然能够看到这一映射关系，而不会引发<code>page fault</code></li>
+</ul>
+<h3 id="3-8、共享内存"><a href="#3-8、共享内存" class="headerlink" title="3.8、共享内存"></a>3.8、共享内存</h3><ul>
+<li>这一套是在<code>glibc</code>里面实现的<ul>
+<li><code>shm_open</code>创建一个<code>file</code>，获取对应的<code>fd</code></li>
+<li><code>mmap</code>映射<code>fd</code></li>
+<li><code>munmap</code>取消映射</li>
+<li><code>shm_unlink</code>减少引用计数</li>
+</ul>
+</li>
+<li>这一套机制是通过<code>open</code>在<code>/dev/shm</code>下面创建文件，用<code>mmap</code>来映射的。这套机制会经过<code>fdtable</code>，所以更为安全。</li>
+</ul>
+<h3 id="3-9、-ptmalloc"><a href="#3-9、-ptmalloc" class="headerlink" title="3.9、 ptmalloc"></a>3.9、 ptmalloc</h3><ul>
+<li><code>ptmalloc</code>通过<code>mmap</code>或brk（仅<code>main_arena</code>使用）每次批发<code>64MB</code>大小的内存（称为<code>heap</code>）来管理。</li>
+<li><code>ptmalloc</code>中有多个<code>arena</code>，即<code>struct malloc_state</code>。只有一个main_arena，其它的<code>arena</code>是动态分配的，但数量有上限，这些<code>arena</code>以链表的形式组织。分配内存找<code>arena</code>时可能会逐个对空闲的<code>arena</code>进行<code>try_lock</code>。</li>
+<li>每个<code>arena</code>管理多个<code>heap</code>。每个<code>heap</code>通过<code>prev</code>指针连接起来，<code>arena-&gt;top</code>指向最近分配的<code>heap</code>中的，未分配给用户的，包含了<code>heap</code>尾部的那个<code>chunk</code>。通过<code>arena-&gt;top</code>，能够找到最近的那个<code>heap</code>。通过最近的那个<code>heap</code>的<code>prev</code>指针，能够依次找到以前所有的<code>heap</code>。</li>
+<li><code>heap</code>释放时会出现某一个<code>heap未</code>全部空闲则该heap前面的空闲的<code>heap</code>无法得到释放的问题。</li>
+<li>用户请求的空间都用<code>chunk</code>来表示。</li>
+<li>所有的空闲的chunk被组织在<code>fastbin</code>，<code>unsorted bin</code>，<code>small bin</code>，<code>large bin</code>中。</li>
+<li><code>fastbin</code>可看作<code>small bin</code>的缓存，缓存<code>16B~64B</code>（以<code>8B</code>递进，共<code>10</code>个）的<code>chunk</code>。</li>
+<li><code>unsorted bin</code>，<code>small bin</code>，<code>large bin</code>都是在bins数组中，只是不同<code>index</code>范围区分了他们。</li>
+<li><code>chunk</code>被分配出去时，其在空闲链表中的前后指针以及前后<code>chunk size</code>的字段会被复用给用户作为空闲区域。</li>
+<li>每个线程有<code>tcache</code>，并且每个线程有一个<code>thread_arena</code>指向当前线程正在使用的<code>arena</code>。</li>
+<li><code>unsorted bin</code>可以看作<code>small bin</code>和<code>large bin</code>的缓冲，链表头是<code>bins[1]</code>。<code>fastbin</code>中的空闲<code>chunk</code>合并时会先放到<code>unsorted bin</code>中。分配时检查<code>unsorted bin</code>没有合适的chunk就会将<code>unsorted bin</code>中的chunk放到<code>small bin</code>或<code>large bin</code>中。</li>
+<li><code>small bin</code>中的chunk大小范围为<code>32B~1088B</code>（以<code>16B</code>递增，共<code>62</code>个<code>bin</code>链表，<code>bin[2]~bin[63]</code>）。</li>
+<li><code>large bin</code>中的chunk大小范围为<code>1024B</code>以上。</li>
+<li>另外，每个线程有一个<code>tcache</code>，共64项，从最小的32字节开始，以<code>16</code>字节为单递增。</li>
+<li>链表操作通过<code>CAS</code>，<code>arena</code>争用需要加锁。</li>
+</ul>
+<h3 id="3-10、jemalloc"><a href="#3-10、jemalloc" class="headerlink" title="3.10、jemalloc"></a>3.10、<a href="https://youjiali1995.github.io/allocator/jemalloc/" target="_blank" rel="noopener">jemalloc</a></h3><ul>
+<li><code>jemalloc</code> 中大量使用了宏生成代码，比较晦涩。<ul>
+<li>通过避免 <code>false cache line sharing</code>，使用内存着色等，提高 <code>cache line</code> 效率</li>
+<li>使用多个 <code>arena</code> 管理、更细粒度的锁、 <code>tsd</code>、<code>tcache</code>等，最小化锁竞争</li>
+<li>使用 <code>slab</code> 分配不同大小的对象，精心选择 <code>size classes</code>，减少内存碎片</li>
+<li>使用多层缓存，内存的释放和分配会经历很多阶段，提升速度</li>
+</ul>
+</li>
+<li>每个线程有一个<code>thread specific data</code>即 <code>struct tsd_s tsd</code>，其中有两个指针，<code>iarena</code>和<code>arena</code>分别指向用于元数据分配和用于普通数据分配的<code>arena</code>。所以，<code>tsd</code>需要找两个<code>arena</code>进行绑定（这两个<code>arena</code>可能是同一个）。</li>
+<li><code>jemalloc</code>会创建多个<code>arena</code>，每个线程由一个 <code>arena</code> 负责。<code>arena</code>有引用计数字段<code>nthreads[2]</code>，<code>nthreads[0]</code>计录普通数据分配<code>arena</code>指针绑定这个<code>arena</code>的次数，<code>nthreads[1]</code>记录元数据分配<code>iarena</code>指针绑定这个<code>arena</code>的次数。一个<code>tsd</code>绑定<code>arena</code>后，就不会改变<code>arena</code>。</li>
+<li>有一个全局变量<code>narenas_auto</code>，它在初始化时被计算好，表示能够创建的<code>arena</code>的最大数量。</li>
+<li>有多个<code>arena</code>，以全局数组的形式组织。每个线程有一个<code>tcache</code>，其中有指向某个<code>arena</code>的指针。</li>
+<li>当需要绑定一个<code>arena</code>时，遍历所有已创建的<code>arena</code>，并保存所有<code>arena</code>中<code>nthreads</code>值最小的那个（根据是绑定元数据还是普通数据，判断使用<code>nthreads[0]</code>还是<code>nthreads[1]</code>）。<ul>
+<li>如果在遍历途中发现数组中有<code>NULL</code>（也就是说数组有<code>slot</code>，还可以创建新的<code>arena</code>），那么就创建一个新的<code>arena</code>，将<code>arena</code>放到那个<code>slot</code>中，并绑定在那个<code>arena</code>上</li>
+<li>如果遍历途中发现所有的<code>slot</code>都被用上了，那么就选择<code>nthreads</code>值最小的那个，绑定那个<code>arena</code></li>
+</ul>
+</li>
+<li><code>jemalloc</code>通过<code>mmap</code>以<code>chunk</code>（默认2M）为单位向操作系统申请内存。每个<code>chunk</code>的头部会有一个<code>extent_node_t</code>记录其元数据信息，如所属的<code>arena</code>和起始地址。这些<code>chunk</code>会以基数树的形式组织起来，保存 <code>chunk</code> 地址到 <code>extent_node_t</code> 的映射</li>
+<li><code>jemalloc</code>内部动态分配的内存通过<code>base</code>组织。<code>base</code> 使用 <code>extent_node_t</code> 组成的红黑树 <code>base_avail_szad</code> 管理 <code>chunk</code>。每次需要分配时，会从红黑树中查找内存大小相同或略大的、地址最低的 <code>node</code>， 然后从 <code>node</code> 负责的 <code>chunk</code> 中分配内存。</li>
+<li><code>chunk</code> 使用 <code>Buddy allocation</code> 划分为不同大小的 <code>run</code>。<code>run</code> 使用 <code>Slab allocation</code> 划分为固定大小的 <code>region</code>，大部分内存分配直接查找对应的 <code>run</code>，从中分配空闲的 <code>region</code>，释放就是标记 <code>region</code> 为空闲。</li>
+<li><code>jemalloc</code> 将对象按大小分为3类，不同大小类别的分配算法不同:<ul>
+<li><code>small</code>（<code>8B-14K</code>）: 从对应 <code>bin</code> 管理的 <code>run</code> 中返回一个 <code>region</code></li>
+<li><code>large（</code>16K-1792K<code>）</code>: 大小比 <code>chunk</code> 小，比 <code>page</code> 大，会单独返回一个 <code>run</code></li>
+<li><code>huge（</code>2M-64M<code>）</code>: 大小为 <code>chunk</code> 倍数，会分配 <code>chunk</code></li>
+</ul>
+</li>
+<li><code>mutex</code> 尽量使用 <code>spinlock</code>，减少线程间的上下文切换</li>
+</ul>
+<h2 id="4-进程管理"><a href="#4-进程管理" class="headerlink" title="4. 进程管理"></a>4. 进程管理</h2><ul>
+<li><a href="https://blog.csdn.net/gatieme/article/details/51484562" target="_blank" rel="noopener"><code>0</code>号进程</a>是<code>idle</code>进程，<code>1</code>号是<code>init</code>即 <code>systemd</code>进程，<code>2</code>号是<code>kthreadd</code>进程</li>
+<li>当没有进程需要调度器调度时，就执行<code>idle</code>进程，其<code>task_struct</code>通过宏初始化，存放在内核<code>data</code>段</li>
+<li>内核<code>init_task</code>即<code>idle</code>进程的栈大小：<code>x64</code>为<code>16k</code>，<code>x86_32</code>为<code>8k</code></li>
+<li><code>task_struct</code>内部存一个<code>void *stack</code>指向栈的基址</li>
+</ul>
+<h2 id="5-地址空间"><a href="#5-地址空间" class="headerlink" title="5.  地址空间"></a>5.  地址空间</h2><blockquote>
+<p><strong>0000000000000000 - 00007fffffffffff (=47 bits) user space, different per mm</strong><br>hole caused by [47:63] sign extension<br>ffff800000000000 - ffff87ffffffffff (=43 bits) guard hole, reserved for hypervisor<br><strong>ffff880000000000 - ffffc7ffffffffff (=64 TB) direct mapping of all phys. memory</strong><br>ffffc80000000000 - ffffc8ffffffffff (=40 bits) hole<br><strong>ffffc90000000000 - ffffe8ffffffffff (=45 bits) vmalloc/ioremap space</strong><br>ffffe90000000000 - ffffe9ffffffffff (=40 bits) hole<br><strong>ffffea0000000000 - ffffeaffffffffff (=40 bits) virtual memory map (1TB)</strong>   //vmemmap，存放所有struct page*</p>
+</blockquote>
+<ul>
+<li><p>用户地址空间</p>
+<blockquote>
+<p>从低地址到高地址：</p>
+<ul>
+<li>text  代码段 —— 代码段，一般是只读的区域;</li>
+<li>static_data 段 =  </li>
+<li>stack 栈区 —— 局部变量，函数的参数，返回值等，由编译器自动分配释放;</li>
+<li>heap 堆区 —— 动态内存分配，由程序员分配释放;</li>
+</ul>
+</blockquote>
+</li>
+<li><p>用户空间和内核空间</p>
+<ul>
+<li>CPU其实并不知道什么用户空间和内核空间，它是通过PTE的U/S位与CPL来判断这个页是否可以被访问。所以，内核空间的那些页面对应的PTE与用户空间对应的PTE中，U/S位实际上是不同的，内核通过这一方式来划分用户空间和内核空间。</li>
+<li>用户态显然不可以访问内核空间，但是内核态下也不一定就能访问用户空间。这与CPU的配置有关，规则很复杂，可以参考Intel手册卷三4.6节，这里提一个关键字SMAP，有兴趣可以自行搜索，在较新的内核版本中，这一机制已经被使用。</li>
+<li><p>关于<a href="http://readm.tech/2016/09/23/syscall/" target="_blank" rel="noopener">vdso和vvar</a>：主要将部分安全的内核代码映射到用户空间，这使得程序可以不进入内核态直接调用系统调用。</p>
+<p><img src="http://ww1.sinaimg.cn/large/77451733gy1g4fwys48n0j210s0k646v.jpg" alt="1560844894694"></p>
+</li>
+<li><p>线性地址空间划分如上图所示。内核空间的划分是确定的，写在内核代码中的，而用户态的空间在可执行文件被装载时才知道，由装载器和链接器来决定（可能需要参考elf相关的文档，才知道具体的装载位置）。不过，用户态空间整体的布局如上图所示，内核的current-&gt;mm结构体中记录着相关段的位置。</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://elixir.bootlin.com/linux/v4.18/source/include/linux/sched.h#L593" target="_blank" rel="noopener"><code>task_struct</code></a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/gatieme/article/details/51577479" target="_blank" rel="noopener"><code>thread_info</code></a></p>
+</li>
+<li><p><a href="http://www.wowotech.net/process_management/context-switch-arch.html" target="_blank" rel="noopener"><code>task_struct-&gt;active_mm</code></a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span>	<span class="keyword">pgdval_t</span>;</span><br><span class="line"> <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span> <span class="keyword">pgdval_t</span> pgd; &#125; <span class="keyword">pgd_t</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span> &#123;</span></span><br><span class="line">     <span class="comment">// 管理mmap出来的内存，brk出来的也是在这brk就是一个简化版的 mmap, 只映射匿名页</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">vm_area_struct</span> *<span class="title">mmap</span>;</span>   </span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">rb_root</span> <span class="title">mm_rb</span>;</span>       	<span class="comment">// 通过红黑树组织</span></span><br><span class="line">     u32 vmacache_seqnum;                   <span class="comment">/* per-thread vmacache */</span></span><br><span class="line">     <span class="keyword">pgd_t</span> * pgd;                <span class="comment">// 页表指针，与 arch 相关, x64 下 pgd_t 为 unsigned long</span></span><br><span class="line"> &#125;;</span><br><span class="line"> </span><br><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">task_struct</span> &#123;</span></span><br><span class="line"> 	<span class="class"><span class="keyword">struct</span> <span class="title">thread_info</span>    <span class="title">thread_info</span>;</span> <span class="comment">// 位于栈顶部，可用来定位 task_struct</span></span><br><span class="line"> 	<span class="keyword">void</span> *<span class="built_in">stack</span>;   <span class="comment">// 指向栈</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span> *<span class="title">mm</span>, *<span class="title">active_mm</span>;</span>   <span class="comment">// 内核线程没有 mm, 但有 active_mm</span></span><br><span class="line">    	<span class="comment">// active_mm 用于 context_switch 时的加速</span></span><br><span class="line">     </span><br><span class="line">     <span class="comment">// 每个vma表示一个虚拟内存区域</span></span><br><span class="line">     <span class="comment">// VMACACHE_SIZE 为 4，per-thread vma缓存</span></span><br><span class="line">     <span class="comment">// 4.4 为 struct vm_area_struct *vmacache[VMACACHE_SIZE]; </span></span><br><span class="line">     <span class="comment">// 通过 #define VMACACHE_HASH(addr) ((addr &gt;&gt; PAGE_SHIFT) &amp; VMACACHE_MASK)</span></span><br><span class="line">    	<span class="comment">// 决定vma的数组存储位置，PAGE_SHIFT 为 12，VMACACHE_MASK 为 VMACACHE_SIZE-1 即 3</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">vmacache</span>     <span class="title">vmacache</span>;</span> </span><br><span class="line"> </span><br><span class="line"> &#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">vm_area_struct</span> &#123;</span></span><br><span class="line"> <span class="comment">// [vm_start, vm_end)</span></span><br><span class="line"> 	<span class="keyword">unsigned</span> <span class="keyword">long</span> vm_start;		<span class="comment">/* Our start address within vm_mm. */</span></span><br><span class="line"> 	<span class="keyword">unsigned</span> <span class="keyword">long</span> vm_end;   <span class="comment">// The first byte after our end address within vm_mm.</span></span><br><span class="line"> 	<span class="keyword">unsigned</span> <span class="keyword">long</span> vm_flags;		<span class="comment">/* 设置读写等权限和是否为共享内存等等，见 mm.h */</span></span><br><span class="line"> 	<span class="comment">/* linked list of VM areas per task, sorted by address */</span></span><br><span class="line"> 	<span class="class"><span class="keyword">struct</span> <span class="title">vm_area_struct</span> *<span class="title">vm_next</span>, *<span class="title">vm_prev</span>;</span> <span class="comment">// 2.6 只有 next</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">rb_node</span> <span class="title">vm_rb</span>;</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span> *<span class="title">vm_mm</span>;</span>	<span class="comment">/* The address space we belong to. */</span></span><br><span class="line">     <span class="comment">/* Function pointers to deal with this struct. */</span></span><br><span class="line"> 	<span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">vm_operations_struct</span> *<span class="title">vm_ops</span>;</span></span><br><span class="line">     <span class="class"><span class="keyword">struct</span> <span class="title">file</span> * <span class="title">vm_file</span>;</span>		<span class="comment">/* File we map to (can be NULL). */</span></span><br><span class="line">     <span class="comment">/* Information about our backing store: */</span></span><br><span class="line"> 	<span class="keyword">unsigned</span> <span class="keyword">long</span> vm_pgoff;		<span class="comment">/* Offset (within vm_file) in PAGE_SIZE units */</span></span><br><span class="line"> &#125;;</span><br><span class="line"> </span><br><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">vmacache</span> &#123;</span></span><br><span class="line"> 	u32 seqnum; <span class="comment">// 4.4放在 task_struct 中, 当其与 mm_struct 中的 seqnum 不一致时缓存失效</span></span><br><span class="line"> 	<span class="class"><span class="keyword">struct</span> <span class="title">vm_area_struct</span> *<span class="title">vmas</span>[<span class="title">VMACACHE_SIZE</span>];</span></span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-文件系统"><a href="#6-文件系统" class="headerlink" title="6. 文件系统"></a>6. 文件系统</h2><h2 id="7-系统调用"><a href="#7-系统调用" class="headerlink" title="7. 系统调用"></a>7. 系统调用</h2><h2 id="8-信号"><a href="#8-信号" class="headerlink" title="8. 信号"></a>8. 信号</h2><h2 id="9-IO管理"><a href="#9-IO管理" class="headerlink" title="9. IO管理"></a>9. IO管理</h2><h2 id="10-中断和异常"><a href="#10-中断和异常" class="headerlink" title="10. 中断和异常"></a>10. 中断和异常</h2><h3 id="1、中断、异常和陷入"><a href="#1、中断、异常和陷入" class="headerlink" title="1、中断、异常和陷入"></a>1、<a href="https://www.cnblogs.com/johnnyflute/p/3765008.html" target="_blank" rel="noopener">中断、异常和陷入</a></h3><ul>
+<li><code>中断</code>：是为了设备与CPU之间的通信。<ul>
+<li>典型的有如服务请求，任务完成提醒等。比如我们熟知的时钟中断，硬盘读写服务请求中断。</li>
+<li>断的发生与系统处在用户态还是在内核态无关，只决定于<code>EFLAGS</code>寄存器的一个标志位。我们熟悉的sti, cli两条指令就是用来设置这个标志位，然后决定是否允许中断。</li>
+<li>中断是异步的，因为从逻辑上来说，中断的产生与当前正在执行的进程无关。</li>
+</ul>
+</li>
+<li>异常：异常是由当前正在执行的进程产生。异常包括很多方面，有出错（fault），有陷入（trap），也有可编程异常（programmable exception）。<ul>
+<li>出错（fault）和陷入（trap）最重要的一点区别是他们发生时所保存的EIP值的不同。出错（fault）保存的EIP指向触发异常的那条指令；而陷入（trap）保存的EIP指向触发异常的那条指令的下一条指令。</li>
+<li>因此，当从异常返回时，出错（fault）会重新执行那条指令；而陷入（trap）就不会重新执行。</li>
+<li><code>缺页异常</code>（page fault），由于是fault，所以当缺页异常处理完成之后，还会去尝试重新执行那条触发异常的指令（那时多半情况是不再缺页）。</li>
+<li><code>陷入</code>的最主要的应用是在调试中，被调试的进程遇到你设置的断点，会停下来等待你的处理，等到你让其重新执行了，它当然不会再去执行已经执行过的断点指令。</li>
+<li>关于异常，还有另外一种说法叫<a href="https://blog.51cto.com/noican/1361087" target="_blank" rel="noopener">软件中断（software interrupt</a>），其实是一个意思。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、中断向量表"><a href="#2、中断向量表" class="headerlink" title="2、中断向量表"></a>2、中断向量表</h3><ul>
+<li><code>IDTR</code>寄存器指向中断向量表。</li>
+</ul>
+<h2 id="11-进程间通信"><a href="#11-进程间通信" class="headerlink" title="11. 进程间通信"></a>11. 进程间通信</h2><h2 id="12-网络"><a href="#12-网络" class="headerlink" title="12. 网络"></a>12. 网络</h2><h2 id="13-内核同步机制"><a href="#13-内核同步机制" class="headerlink" title="13.内核同步机制"></a>13.内核同步机制</h2><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>内核<code>RCU</code>机制</li>
+<li><code>seq_lock</code>：写友好</li>
+<li><code>rcu</code>：读友好，更新时先拷贝，设置拷贝项的先修改再设置自身指向的前后指针，再设置前面的指向它，再设置自己指向后面的。删除时，与更新相同，只是最后释放的时候调用<code>synchronize_rcu()</code>或<code>call_rcu()</code>在一段间隔后回收，间隔<code>(grace period)</code>的确定是等待当前时间点所有未完成的<code>read</code>操作执行完</li>
+<li><code>madvise</code></li>
+<li>平常调用<code>mmap</code>实际调的是<code>glibc</code>的<code>mmap</code>，其对内核的系统调用<code>mmap</code>进行了封装，最终调用的是<code>mmap2 -&gt; do_mmap</code></li>
+<li><code>sys_mmap</code>源码应当搜索<code>SYSCALL_DEFINE6(mmap</code>，里面调用<code>SYSCALL_DEFINE6(mmap_pgoff</code>，再进入<code>ksys_mmap_pgoff -&gt; vm_mmap_pgoff -&gt; do_mmap_pgoff -&gt; do_mmap</code></li>
+<li><code>mmap</code>的最初起始位置有随机页偏移</li>
+<li>内核配置一般是没有开启<code>CONFIG_PREEMPT</code>，只开启了<code>CONFIG_PREEMPT_VOLUNTARY</code></li>
+<li>内核的各种<a href="http://guojing.me/linux-kernel-architecture/posts/interrupt/" target="_blank" rel="noopener">中断和异常</a></li>
+<li><a href="https://edsionte.com/techblog/archives/4174" target="_blank" rel="noopener">缺页异常的处理</a></li>
+<li><a href="http://www.wowotech.net/memory_management/memory-fragment.html" target="_blank" rel="noopener">内存碎片</a></li>
+<li><code>CPU</code>执行一条指令的过程：取指、译码、执行、访存、写回</li>
+<li><a href="https://zhuanlan.zhihu.com/p/45808885" target="_blank" rel="noopener">CPU指令乱序</a>：<ul>
+<li>cpu为了提高流水线的运行效率，会做出比如：1)对无依赖的前后指令做适当的乱序和调度；2)对控制依赖的指令做分支预测；3)对读取内存等的耗时操作，做提前预读；等等。以上总总，都会导致指令乱序的可能。</li>
+<li>但是对于x86的cpu来说，在单核视角上，其实它做出了Sequential consistency的一致性保障，指令在cpu核内部确实是乱序执行和调度的，但是它们对外表现却是顺序提交的，cpu只需要把内部真实的物理寄存器按照指令的执行顺序，顺序映射到ISA寄存器上，也就是cpu只要将结果顺序地提交到ISA寄存器，就可以保证Sequential consistency。</li>
+</ul>
+</li>
+<li>per-cpu变量和线程局部存储。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tags1/" rel="tag"><i class="fa fa-tag"></i> tags1</a>
+          
+            <a href="/tags/tags2/" rel="tag"><i class="fa fa-tag"></i> tags2</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/design-pattern/design-patterns.html" rel="next" title="design patterns">
+                <i class="fa fa-chevron-left"></i> design patterns
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zofvbeaf">
+            
+              <p class="site-author-name" itemprop="name">zofvbeaf</p>
+              <p class="site-description motion-element" itemprop="description">浮世梦中梦，布衣裁不裁，弹狭狂歌莫浪猜。埋，贤愚何用哉。青山在，月明归去来。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zofvbeaf" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zofvbeaf@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Course"><span class="nav-number">1.</span> <span class="nav-text">1. Course</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-系统启动"><span class="nav-number">2.</span> <span class="nav-text">2. 系统启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-内存管理"><span class="nav-number">3.</span> <span class="nav-text">3. 内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、分页"><span class="nav-number">3.1.</span> <span class="nav-text">3.1、分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2、页框管理"><span class="nav-number">3.2.</span> <span class="nav-text">3.2、页框管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3、buddy系统"><span class="nav-number">3.3.</span> <span class="nav-text">3.3、buddy系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4、slab分配器"><span class="nav-number">3.4.</span> <span class="nav-text">3.4、slab分配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5、kmalloc和vmalloc"><span class="nav-number">3.5.</span> <span class="nav-text">3.5、kmalloc和vmalloc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6、用户态内存管理：mmap和brk"><span class="nav-number">3.6.</span> <span class="nav-text">3.6、用户态内存管理：mmap和brk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7、内核地址空间共享机制"><span class="nav-number">3.7.</span> <span class="nav-text">3.7、内核地址空间共享机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8、共享内存"><span class="nav-number">3.8.</span> <span class="nav-text">3.8、共享内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-9、-ptmalloc"><span class="nav-number">3.9.</span> <span class="nav-text">3.9、 ptmalloc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-10、jemalloc"><span class="nav-number">3.10.</span> <span class="nav-text">3.10、jemalloc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-进程管理"><span class="nav-number">4.</span> <span class="nav-text">4. 进程管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-地址空间"><span class="nav-number">5.</span> <span class="nav-text">5.  地址空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-文件系统"><span class="nav-number">6.</span> <span class="nav-text">6. 文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-系统调用"><span class="nav-number">7.</span> <span class="nav-text">7. 系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-信号"><span class="nav-number">8.</span> <span class="nav-text">8. 信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-IO管理"><span class="nav-number">9.</span> <span class="nav-text">9. IO管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-中断和异常"><span class="nav-number">10.</span> <span class="nav-text">10. 中断和异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、中断、异常和陷入"><span class="nav-number">10.1.</span> <span class="nav-text">1、中断、异常和陷入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、中断向量表"><span class="nav-number">10.2.</span> <span class="nav-text">2、中断向量表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-进程间通信"><span class="nav-number">11.</span> <span class="nav-text">11. 进程间通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-网络"><span class="nav-number">12.</span> <span class="nav-text">12. 网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-内核同步机制"><span class="nav-number">13.</span> <span class="nav-text">13.内核同步机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">14.</span> <span class="nav-text">问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zofvbeaf</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    Visitors:<span id="busuanzi_value_site_uv"></span>
+  </span>
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+</body>
+</html>
