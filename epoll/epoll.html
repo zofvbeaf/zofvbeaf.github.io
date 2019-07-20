@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="ZOFVBEAF&#39;S BLOG">
 <meta property="og:description" content="epoll 内部监听的事件以epitem组织为一个红黑树 注册和事件添加到epoll的rdlist都是通过调用f_op-&amp;gt;poll 注册时是通过将epoll添加到文件的wait_queue_head中 rdlist上的epitem通常是由被监听文件自己挂上去的  data struct fs/eventpoll.c epoll_create (SYSCALL_DEFINE1(epoll_cr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-09T11:37:34.253Z">
+<meta property="og:updated_time" content="2019-07-20T11:13:47.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="epoll源码">
 <meta name="twitter:description" content="epoll 内部监听的事件以epitem组织为一个红黑树 注册和事件添加到epoll的rdlist都是通过调用f_op-&amp;gt;poll 注册时是通过将epoll添加到文件的wait_queue_head中 rdlist上的epitem通常是由被监听文件自己挂上去的  data struct fs/eventpoll.c epoll_create (SYSCALL_DEFINE1(epoll_cr">
@@ -136,7 +136,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -435,6 +435,7 @@
 <li>相关的数据结构<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">wait_queue_head</span> &#123;</span></span><br><span class="line">    <span class="keyword">spinlock_t</span>              lock;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>        <span class="title">head</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">wait_queue_head</span> <span class="title">wait_queue_head_t</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mutex</span> &#123;</span></span><br><span class="line">    <span class="keyword">atomic_long_t</span>           owner;</span><br><span class="line">    <span class="keyword">spinlock_t</span>              wait_lock;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">optimistic_spin_queue</span> <span class="title">osq</span>;</span> <span class="comment">// 优化 mutex 的性能</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>        <span class="title">wait_list</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Leftmost-cached rbtrees.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * We do not cache the rightmost node based on footprint</span></span><br><span class="line"><span class="comment"> * size vs number of potential users that could benefit</span></span><br><span class="line"><span class="comment"> * from O(1) rb_last(). Just not worth it, users that want</span></span><br><span class="line"><span class="comment"> * this feature can always implement the logic explicitly.</span></span><br><span class="line"><span class="comment"> * Furthermore, users that want to cache both pointers may</span></span><br><span class="line"><span class="comment"> * find it a bit asymmetric, but that's ok.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rb_root_cached</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">rb_root</span> <span class="title">rb_root</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">rb_node</span> *<span class="title">rb_leftmost</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">file</span> &#123;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">path</span>                     <span class="title">f_path</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">inode</span>                    *<span class="title">f_inode</span>;</span>          <span class="comment">/* cached value */</span></span><br><span class="line">  <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span>    *<span class="title">f_op</span>;</span></span><br><span class="line">  <span class="keyword">spinlock_t</span>                      f_lock; </span><br><span class="line">  <span class="comment">// 对于epollfd指向 struct event_poll</span></span><br><span class="line">  <span class="keyword">void</span>                      *private_data; </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> CONFIG_EPOLL</span></span><br><span class="line">    <span class="comment">/* Used by fs/eventpoll.c to link all the hooks to this file */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>        <span class="title">f_ep_links</span>;</span> <span class="comment">// 所有监听此文件的 epitem 的链表</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>        <span class="title">f_tfile_llink</span>;</span> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* #ifdef CONFIG_EPOLL */</span></span></span><br><span class="line">  <span class="comment">// ....</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">callback_head</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">callback_head</span> *<span class="title">next</span>;</span></span><br><span class="line">    <span class="keyword">void</span> (*func)(struct callback_head *head);</span><br><span class="line">&#125; __attribute__((aligned(<span class="keyword">sizeof</span>(<span class="keyword">void</span> *))));</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rcu_head callback_head</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="epoll-create"><a href="#epoll-create" class="headerlink" title="epoll_create"></a>epoll_create</h3><ul>
 <li><code>glibc</code>的<code>epoll_create</code> -&gt; 系统调用的<code>epoll_create</code>  -&gt; <code>do_epoll_create</code><ul>
 <li><code>ep_alloc(&amp;ep)</code> 创建一个 <code>struct eventpoll</code> 即 <code>ep</code>，并初始化</li>
@@ -571,6 +572,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/algorithms/jzoffer.html" rel="prev" title="剑指offer">
+                剑指offer <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -648,7 +653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -659,7 +664,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -670,7 +675,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -719,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#epoll"><span class="nav-number">1.</span> <span class="nav-text">epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#data-struct"><span class="nav-number">1.1.</span> <span class="nav-text">data struct</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-create"><span class="nav-number">1.2.</span> <span class="nav-text">epoll_create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-ctl"><span class="nav-number">1.3.</span> <span class="nav-text">epoll_ctl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-wait"><span class="nav-number">1.4.</span> <span class="nav-text">epoll_wait</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select"><span class="nav-number">2.</span> <span class="nav-text">select</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-和-epoll-对比"><span class="nav-number">3.</span> <span class="nav-text">select 和 epoll 对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problems"><span class="nav-number">4.</span> <span class="nav-text">problems</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#epoll"><span class="nav-text">epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#data-struct"><span class="nav-text">data struct</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-create"><span class="nav-text">epoll_create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-ctl"><span class="nav-text">epoll_ctl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll-wait"><span class="nav-text">epoll_wait</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select"><span class="nav-text">select</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-和-epoll-对比"><span class="nav-text">select 和 epoll 对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problems"><span class="nav-text">problems</span></a></li></ol></div>
             
 
           </div>
